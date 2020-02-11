@@ -34,8 +34,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|customoer_id|string|foreign_key: true|
-|card_id|string|foreign_key: true|
+|customoer|string||
+|card_num|string||
 |token|string||
 ### Association
 - belongs_to :Users
