@@ -12,10 +12,10 @@
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
 |telnumber|integer|null: false|
-|addlesses_id|integer|foreign_key: true|
+|address_id|integer|foreign_key: true|
 |cards_id|integer|foreign_key: true|
 ### Association
-- belong_to :Addlesses
+- belong_to :Address
 - belong_to :Cards
 - has_many :Profucts
 ## Addressesテーブル
@@ -34,7 +34,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|customoer|string||
+|customername|string||
 |card_num|string||
 |token|string||
 ### Association
@@ -47,22 +47,23 @@
 ### Association
 - belongs_to :Products 
 
-## prodactsテーブル
 
+## prodactsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|userid|string|null: false|
+|user_id|string|null: false|
 |name|string|null: false|
-|Details|string|null: false|
-|Categories|string|null: false|
+|details|string|null: false|
+|categories|string|null: false|
 |price|integer|null: false|
 |status|string｜null: false|
 |exhibition|string|null: false|
-|date and time｜integer｜null: false|
+|date_and_time｜integer｜null: false|
 
 ### Association
 - has_many :images
 - has_many :main_categories
+- belongs_to :users
 
 
 ## imagesテーブル
@@ -74,7 +75,6 @@
 - belongs_to :prodact
 
 ## main_categoriesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
