@@ -8,8 +8,12 @@
 |first_name|tstring|null: false|
 |kana_family_name|string|null: false|
 |kana_first_name|string|null: false|
-|birthday|integer|null: false|
+|birth_year|integer|null: false|
+|birth_month|integer|null: false|
+|birth_day|integer|null: false|
 |telnumber|integer|null: false|
+|addlesses_id|integer|foreign_key: true|
+|cards_id|integer|foreign_key: true|
 ### Association
 - belong_to :Addlesses
 - belong_to :Cards
@@ -19,21 +23,23 @@
 |------|----|-------|
 |user_id|integer|null: false|
 |address_number|integer|null: false|
-|prefectures|string|null: false|
+|prefecture|string|null: false|
 |city|string|null: false|
 |address1|string||
 |address2|string||
 ### Association
 - belongs_to :Users
+
 ## Cardsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
-|customoer_id|integer||
-|card_id|integer||
+|customoer_id|string|foreign_key: true|
+|card_id|string|foreign_key: true|
 |token|string||
 ### Association
 - belongs_to :Users
+
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -62,20 +68,20 @@
 ## imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|image|text|null: false|
-|prodacts_id|integer|null: false, foreign_key: true|
+|image|string|null: false|
+|prodact_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :prodacts
+- belongs_to :prodact
 
 ## main_categoriesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|prodacts_id|integer|null: false, foreign_key: true|
+|prodact_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :prodacts
+- belongs_to :prodact
 - has_many :sub_categories
 
 
