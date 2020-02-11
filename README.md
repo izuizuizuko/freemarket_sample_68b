@@ -15,9 +15,9 @@
 |address_id|integer|foreign_key: true|
 |cards_id|integer|foreign_key: true|
 ### Association
-- belong_to :Address
-- belong_to :Cards
-- has_many :Profucts
+- belong_to :address
+- belong_to :cards
+- has_many :profucts
 ## Addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -28,7 +28,7 @@
 |address1|string||
 |address2|string||
 ### Association
-- belongs_to :Users
+- belongs_to :users
 
 ## Cardsテーブル
 |Column|Type|Options|
@@ -38,14 +38,14 @@
 |card_num|string||
 |token|string||
 ### Association
-- belongs_to :Users
+- belongs_to :users
 
 ## Imagesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |photo|string||
 ### Association
-- belongs_to :Products 
+- belongs_to :products 
 
 
 ## prodactsテーブル
@@ -53,8 +53,8 @@
 |------|----|-------|
 |user_id|string|null: false|
 |name|string|null: false|
-|details|string|null: false|
-|categories|string|null: false|
+|detail|string|null: false|
+|categorie|string|null: false|
 |price|integer|null: false|
 |status|string｜null: false|
 |exhibition|string|null: false|
@@ -82,11 +82,10 @@
 
 ### Association
 - belongs_to :prodact
-- has_many :sub_categories
+- has_ancestry :sub_categories
 
 
 # sub_categoriesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |main_categories_id|integer|null: false, foreign_key: true|
@@ -94,12 +93,11 @@
 
 ### Association
 - belongs_to :main_categopries
-- has_many :sub2_categories
+- has_ancestry :sub2_categories
 
 
 
 # sub2_categoriesテーブル
-
 |Column|Type|Options|
 |------|----|-------|
 |sub_categories_id|integer|null: false, foreign_key: true|
