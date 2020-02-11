@@ -102,3 +102,4 @@
 ### Association
 - belongs_to :sub_categopries
 
+tst
