@@ -103,3 +103,4 @@
 - belongs_to :sub_categopries
 
 
+
