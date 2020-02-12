@@ -12,23 +12,22 @@
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
 |telnumber|integer|null: false|
-|address_id|integer|foreign_key: true|
-|cards_id|integer|foreign_key: true|
+
 ### Association
-- belong_to :address
-- belong_to :cards
+- has_one :address
+- has_one :card
 - has_many :profucts
 ## Addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 |address_number|integer|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|address1|string||
-|address2|string||
+|town|string||
+|house_number|string||
 ### Association
-- belongs_to :users
+- belongs_to :user
 
 ## Cardsテーブル
 |Column|Type|Options|
@@ -38,23 +37,16 @@
 |card_num|string||
 |token|string||
 ### Association
-- belongs_to :users
-
-## Imagesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|photo|string||
-### Association
-- belongs_to :products 
+- belongs_to :user
 
 
 ## prodactsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|string|null: false|
+|user_id|string|null: false, foreign_key: true|
 |name|string|null: false|
 |detail|string|null: false|
-|categorie_id|integer|null: false|
+|category_id|integer|null: false, foreign_key: true|
 |price|integer|null: false|
 |status|string｜null: false|
 |exhibition|string|null: false|
@@ -62,8 +54,8 @@
 
 ### Association
 - has_many :images
-- belongs_to :categories
-- belongs_to :users
+- belongs_to :category
+- belongs_to :user
 
 
 ## imagesテーブル
