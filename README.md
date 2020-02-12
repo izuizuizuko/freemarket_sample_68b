@@ -54,7 +54,7 @@
 |user_id|string|null: false|
 |name|string|null: false|
 |detail|string|null: false|
-|categorie|string|null: false|
+|categorie_id|integer|null: false|
 |price|integer|null: false|
 |status|string｜null: false|
 |exhibition|string|null: false|
@@ -62,7 +62,7 @@
 
 ### Association
 - has_many :images
-- has_many :main_categories
+- belongs_to :categories
 - belongs_to :users
 
 
@@ -74,34 +74,12 @@
 ### Association
 - belongs_to :prodact
 
-## main_categoriesテーブル
+## categoriesテーブル
 |Column|Type|Options|
 |------|----|-------|
+|path|ancestry, :string||
 |name|string|null: false|
-|prodact_id|integer|null: false, foreign_key: true|
 
 ### Association
-- belongs_to :prodact
-- has_ancestry :sub_categories
-
-
-# sub_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|main_categories_id|integer|null: false, foreign_key: true|
-|name|integer|null: false|
-
-### Association
-- belongs_to :main_categopries
-- has_ancestry :sub2_categories
-
-
-
-# sub2_categoriesテーブル
-|Column|Type|Options|
-|------|----|-------|
-|sub_categories_id|integer|null: false, foreign_key: true|
-|name|integer|null: false|
-
-### Association
-- belongs_to :sub_categopries
+- has_ancestry
+- has_many :prodacts
