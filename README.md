@@ -16,7 +16,7 @@
 ### Association
 - has_one :address
 - has_one :card
-- has_many :profucts
+- has_many :products
 ## Addressesテーブル
 |Column|Type|Options|
 |------|----|-------|
