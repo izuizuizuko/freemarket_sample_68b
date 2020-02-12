@@ -48,9 +48,9 @@
 |detail|string|null: false|
 |category_id|integer|null: false, foreign_key: true|
 |price|integer|null: false|
-|status|string｜null: false|
-|exhibition|string|null: false|
-|date_and_time｜integer｜null: false|
+|condition|string｜null: false|
+|status|string|null: false|
+
 
 ### Association
 - has_many :images
