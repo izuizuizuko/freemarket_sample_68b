@@ -4,7 +4,7 @@ development:
   database: freemarket_sample_68b_development
   pool: 5
   username: root
-  password:
+  password: <%= ENV[68b] %>
   socket: /tmp/mysql.sock
 test:
   adapter: mysql2
@@ -13,5 +13,5 @@ test:
   database: freemarket_sample_68b_test
   pool: 5
   username: root
-  password:
-  socket: /tmp/mysql.sock
+  password: <%= ENV[68b] %>
+  socket: /var/lib/mysql/mysql.sock
