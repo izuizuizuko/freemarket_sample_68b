@@ -1,0 +1,62 @@
+&__inner2 {
+    padding: 0 0 200px;
+
+    .account-page__header {
+      text-align: center;
+      h1 {
+        display: inline-block;
+        padding: 30px 0px;
+        .header__logo {
+          width: 240px;
+          height: 66px;
+        }
+      }
+    }
+
+    .account-page__main {
+      &__forms {
+        background-color: white;
+        max-width: 456px;
+        margin: 0 auto;
+        &__top {
+          font-size: 14px;
+          padding: 24px 32px;
+          text-align: center;
+          border-bottom: 1px solid #eee;
+          .new {
+            margin: 8px 0 0;
+            border: 1px solid #0099e8;
+            background: #0099e8;
+            color: #fff;
+            line-height: 40px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+          }
+        }
+
+        &__form {
+          padding: 24px 32px;
+
+          .field {        
+            .field-input {
+              input {
+                height: 48px;
+                width: 100%;
+                letter-spacing: 1px;
+                margin-bottom: 40px;
+              }
+            }
+            .btn {
+              border: 1px solid #ea352d;
+              color: #fff;
+              background-color: #ea352d;
+              text-align: center;
+              width: 100%;
+              height: 48px;
+            }
+          }
+        }
+      }
+    }
+}

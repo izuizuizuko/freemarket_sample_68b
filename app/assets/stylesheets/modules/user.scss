@@ -1,0 +1,31 @@
+.account-page {
+  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  background-color: #f5f5f5;
+  @import "signs/sign_in";
+  @import "signs/sign_up";
+    .account-page__footer {
+      
+      nav {
+        padding-top: 20px;
+        color: #333;
+        margin: 16px 0 0;
+        font-size: 12px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+          p {
+            padding-right: 16px;
+          }
+      }
+
+      &__logo {
+        text-align: center;
+        .footer__logo {
+          width: 240px;
+          height: 66px;
+          margin: 40px auto 0;
+          font-size: 13px;
+        }
+      }
+    }
+}
