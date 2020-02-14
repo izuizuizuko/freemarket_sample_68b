@@ -15,3 +15,14 @@ test:
   username: root
   password: <%= ENV['68b'] %>
   socket:  /tmp/mysql.sock
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  reconnect: false
+  database: freemarket_sample_68b_production
+  pool: 5
+  username: root
+  password: <%= ENV['68b'] %>
+  socket:  /var/lib/mysql/mysql.sock
+  
