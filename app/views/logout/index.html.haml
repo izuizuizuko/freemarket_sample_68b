@@ -1,0 +1,82 @@
+.header
+  .header__inner
+    .header__inner__main
+      .header__inner__main__icon
+        = link_to image_tag('logo/logo.png', width:'150px'), "#"
+      .header__inner__main__seach
+        = form_with(url:"#",local: true, method: :get, class: "header__inner__main__seach__form") do |form|
+          = form.text_field :keyword, placeholder: "キーワードから探す", class: "header__inner__main__seach__form__input"
+          = form.submit "", class: "header__inner__main__seach__form__btn"
+    .header__inner__nav
+      .header__inner__nav__left
+        .header__inner__nav__left__ca
+          = link_to "#" do
+            カテゴリー
+        .header__inner__nav__left__br
+          = link_to "#" do
+            ブランド
+      .header__inner__nav__right
+        .header__inner__nav__right__log
+          = link_to "#" do
+            ログイン
+        .header__inner__nav__right__sign
+          = link_to "#" do
+            新規会員登録
+%main
+  .my-side
+    %nav.my-side__nav{role: "navigation"}
+      %ul.my-side__nav__lists
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name1{href:"#"} マイページ
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 出品した商品-出品中
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 出品した商品-取引中
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 出品した商品-売却済
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 購入した商品-取引中
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 購入した商品-過去の取引
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 評価一覧
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} お問い合わせ
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} ログアウト
+
+      %h3.my-side__nav__title
+        メルペイ
+      %ul.my-side__nav__lists
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 振り込み申請
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} お問い合わせ
+
+      %h3.my-side__nav__title
+        設定
+      %ul.my-side__nav__lists
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} プロフィール
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 発送元・・お届け先住所変更
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 支払い方法
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} メール/パスワード
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 本人情報
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} 電話番号の確認
+        %li.my-side__nav__lists__list
+          %a.my-side__nav__lists__list__name{href: "#"} ログアウト
+
+  .logout
+    .logout__box
+      .logout__box__bm
+        = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logout__box__bm__btn"
+
+
+
+
+

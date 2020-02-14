@@ -1,0 +1,33 @@
+body{
+  background-color: whitesmoke;
+}
+
+main{
+  width: 1020px;
+  display: flex;
+  margin: 40px auto 0;
+}
+
+.logout{
+  height: 170px;
+  width: 600px;
+  margin: 40px 0 0 40px;
+  background-color: white;
+  &__box{
+    height: 60px;
+    width: 300px;
+    background-color: red;
+    margin: 50px auto;
+    &__bm{
+      margin: 0 auto;
+      text-align: center;
+      line-height: 60px;
+      &__btn{
+        color: seashell;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+
