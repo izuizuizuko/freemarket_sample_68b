@@ -11,4 +11,6 @@ class User < ApplicationRecord
   validates :kana_first_name, presence: true, format: { with: /\A[\p{katakana}\p{blank}ー－]+\z/, message: 'はカタカナで入力して下さい。'}
   validates :birthday, presence: true
   validates :telnumber, presence: true, numericality: { only_integer: true}
+
+  has_many :cards
 end
