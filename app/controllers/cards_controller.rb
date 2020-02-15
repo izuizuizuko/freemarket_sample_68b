@@ -7,7 +7,7 @@ class CardsController < ApplicationController
   end
 
   def pay 
-    Payjp.api_key = 'sk_test_1256cf4bf13b352e5a9ced9f'
+    Payjp.api_key = ENV["KEY"]
       customer = Payjp::Customer.create(
       card: params['payjp-token'],
       metadata: {user_id: current_user.id}
@@ -22,7 +22,7 @@ class CardsController < ApplicationController
 
   def delete 
     card = Card.where(user_id: current_user.id).first
-      Payjp.api_key = 'sk_test_1256cf4bf13b352e5a9ced9f'
+      Payjp.api_key = ENV["KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       customer.delete
       if card.delete
@@ -35,7 +35,7 @@ class CardsController < ApplicationController
 
   def show 
     card = Card.find_by(user_id: current_user.id)
-      Payjp.api_key = 'sk_test_1256cf4bf13b352e5a9ced9f'
+      Payjp.api_key = ENV["KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
       
