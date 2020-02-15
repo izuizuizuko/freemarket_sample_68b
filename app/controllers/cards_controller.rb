@@ -34,7 +34,7 @@ class CardsController < ApplicationController
   end
 
   def show 
-    card = Card.where(user_id: current_user.id).first
+    card = Card.find_by(user_id: current_user.id)
       Payjp.api_key = 'sk_test_1256cf4bf13b352e5a9ced9f'
       customer = Payjp::Customer.retrieve(card.customer_id)
       @default_card_information = customer.cards.retrieve(card.card_id)
