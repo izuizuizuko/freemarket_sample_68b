@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root "users#index"
+  root to:'toppage#index'
   
   resources :users, only: [:show, :index]
   resources :cards, only: [:new, :show] do
@@ -10,4 +10,5 @@ Rails.application.routes.draw do
       post 'delete', to: 'cards#delete'
     end
   end
+  resources :toppage, only: :index
 end
