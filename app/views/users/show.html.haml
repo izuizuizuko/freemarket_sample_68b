@@ -1,4 +1,4 @@
-= render 'layouts/hedder'
+= render 'toppage/header'
 
 .main
   .main__box
@@ -10,4 +10,4 @@
           .logout__box__bm
             = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logout__box__bm__btn"
 
-= render 'layouts/footer'
+= render 'toppage/footer'
