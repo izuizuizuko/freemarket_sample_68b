@@ -1,0 +1,31 @@
+.my-side{
+    width: 280px;
+    padding-right: 40px;
+    &__nav{
+      background-repeat: no-repeat;
+      margin: 0;
+      padding: 0;
+      &__lists{
+        list-style: none;
+        &__list{
+          border: 0;
+          &__name{
+            position: relative;
+            display: block;
+            min-height: 25px;
+            padding: 16px;
+            background: #fff;
+            font-size: 14px;
+            color: #333;
+            text-decoration: none;
+            border-bottom: solid 1px #eee;
+          }
+        }
+      }
+      &__title{
+        margin: 40px 0 0;
+        font-weight: 600;
+        padding:0 0 10px 10px;
+      }
+    }
+  }

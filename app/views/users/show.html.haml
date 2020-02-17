@@ -1,0 +1,13 @@
+= render 'toppage/header'
+
+.main
+  .main__box
+    = render 'left-memu'
+
+    .my-main
+      .logout
+        .logout__box
+          .logout__box__bm
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logout__box__bm__btn"
+
+= render 'toppage/footer'
