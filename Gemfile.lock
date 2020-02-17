@@ -260,7 +260,8 @@ DEPENDENCIES
     sshkit (1.20.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
-      fog-aws
+      fog-aws 
+
 
 
 
