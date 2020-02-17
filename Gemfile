@@ -85,3 +85,4 @@ gem 'dotenv-rails'
 gem 'haml-rails'
 gem "font-awesome-sass"
 gem "font-awesome-rails"
+gem 'ancestry'
