@@ -8,9 +8,7 @@
 |first_name|tstring|null: false|
 |kana_family_name|string|null: false|
 |kana_first_name|string|null: false|
-|birth_year|integer|null: false|
-|birth_month|integer|null: false|
-|birth_day|integer|null: false|
+|birthday|string|null: false|
 |telnumber|integer|null: false|
 
 ### Association

@@ -1,0 +1,75 @@
+#account-page.account-page
+  .account-page__inner1.clearfix
+    .page__header
+      %h1
+        = link_to image_tag("logo/logo.png", class:"header__logo")
+    .page__main
+      %h2 会員情報入力
+      .page__main__forms
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          .field
+            .field-label
+              = f.label :ニックネーム
+              %span 必須
+            .field-input
+              = f.text_field :nickname, autofocus: true, :placeholder => "例）フリマ太郎"
+          .field
+            .field-label
+              = f.label :メールアドレス
+              %span 必須
+            .field-input
+              = f.email_field :email, :placeholder => "PC・携帯どちらでも可"
+          .field
+            .field-label
+              = f.label :パスワード
+              %span 必須
+            .field-input
+              = f.password_field :password, autocomplete: "off", :placeholder => "７字以上の半角英数字"
+            %p.annotation ※ 英字と数字の両方を含めて設定してください
+          %h3 本人確認
+          %p 安心・安全にご利用いただくために、お客さまの本人情報の登録にご協力ください。他のお客さまに公開されることはありません。
+          .field__names
+            .field-label
+              = f.label :お名前（全角）
+              %span 必須
+            .field-input__box
+              .field-input
+                = f.text_field :family_name, autofocus: true, :placeholder => "例）山田"
+              .field-input2
+                = f.text_field :first_name, autofocus: true, :placeholder => "例）彩"
+          .field__names
+            .field-label
+              = f.label :お名前カナ（全角）
+              %span 必須
+            .field-input__box
+              .field-input
+                = f.text_field :kana_family_name, autofocus: true, :placeholder => "例）ヤマダ"
+              .field-input2
+                = f.text_field :kana_first_name, autofocus: true, :placeholder => "例）アヤ"
+          .field
+            .field-label
+              = f.label :電話番号
+              %span 必須
+            .field-input
+              = f.text_field :telnumber, autofocus: true, :placeholder => "例）✗✗✗✗✗✗✗✗✗✗✗"
+          .field
+            .field-label
+              = f.label :生年月日
+              %span 必須
+            .field-input
+              = f.date_select :birthday, {use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)}, {class:"select-box"}
+            %p.annotation ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+
+          .actions
+            = f.submit "次へ進む", class: 'btn'
+
+    .account-page__footer
+      %nav
+        %p プライバシーポリシー
+        %p メルカリ利用規約
+        %p 特定商取引に関する表記
+      .account-page__footer__logo
+        = link_to image_tag('logo/logo-white.png', class:"footer__logo")
+        %p
+        ©Merrcari, inc

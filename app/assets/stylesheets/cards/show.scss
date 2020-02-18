@@ -1,0 +1,39 @@
+.my-credit{
+    height: 100%;
+    width: 720px;
+    background-color: white;
+    &__title{
+      font-size: 22px;
+      height: 50px;
+      line-height: 50px;
+      text-align: center;
+      border-bottom: solid 1px #eeeeee;
+      font-weight: bold;
+    }
+    &__card {
+        padding: 30px 100px 0 0;
+        width: 320px;
+        margin: 0 auto;
+        .page-name {
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+        &__number {
+            font-size: 20px;
+            padding: 5px 0;
+        }
+    }
+    &__btn {
+        text-align: center;
+        button.dide-btn {
+            border: 1px solid #ea352d;
+            color: #fff;
+            background-color: #ea352d;
+            text-align: center;
+            width: 80px;
+            height: 30px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+    }
+  }

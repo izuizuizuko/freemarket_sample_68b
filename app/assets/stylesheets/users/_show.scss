@@ -1,0 +1,27 @@
+body{
+  background-color: whitesmoke;
+}
+
+.logout{
+  height: 115px;
+  width: 720px;
+  background-color: white;
+  padding-top: 55px;
+  &__box{
+    height: 60px;
+    width: 300px;
+    background-color: red;
+    margin: 0px auto;
+    &__bm{
+      margin: 0 auto;
+      text-align: center;
+      line-height: 60px;
+      &__btn{
+        color: seashell;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+

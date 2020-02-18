@@ -1,0 +1,33 @@
+#account-page.account-page
+  .account-page__inner2.clearfix
+    .account-page__header
+      %h1
+        = link_to image_tag('logo/logo.png', class:"header__logo")
+    .account-page__main
+      .account-page__main__forms
+        .account-page__main__forms__top
+          %p
+            アカウントをお持ちでない方はこちら
+            %br
+            = link_to '新規会員登録', '/users/sign_up', class:"new"
+        .account-page__main__forms__form
+          = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+            .field
+              .field-input
+                = f.email_field :email, autofocus: true, :placeholder => "メールアドレス"
+              .field
+                .field-input
+                  = f.password_field :password, autocomplete: "off", :placeholder => "パスワード"
+              .actions
+                = f.submit "ログイン", class: 'btn'
+    .account-page__footer
+      %nav
+        %p プライバシーポリシー
+        %p メルカリ利用規約
+        %p 特定商取引に関する表記
+      .account-page__footer__logo
+        = link_to image_tag('logo/logo-white.png', class:"footer__logo")
+        %p
+        ©Merrcari, inc
+
+
