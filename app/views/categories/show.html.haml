@@ -1,0 +1,27 @@
+= render 'toppage/header'
+
+.main-goods
+  .main-goods__another
+    %ul 
+      - @categories.each do |child|
+        %li 
+          = link_to("#{child.name}", category_path(id: child.id), {class: "brother"})
+  .main-goods__contents
+    %h2 #{@category.name}　の商品一覧
+    .main-goods__contents__lists
+      - @item.each do |item|
+        .main__pick__box__lists__list
+          = link_to "#", class:"main__pick__box__lists__list__a" do
+            .main__pick__box__lists__list__a__image
+              = image_tag "#{item.images[0].image}"
+            .main__pick__box__lists__list__a__text
+              .main__pick__box__lists__list__a__text__name
+                = item.name
+              .main__pick__box__lists__list__a__text__box
+                .main__pick__box__lists__list__a__text__box__price
+                  = item.price
+                .main__pick__box__lists__list__a__text__box__tax
+                  (税込)   
+
+  = paginate(@item)
+= render 'toppage/footer'
