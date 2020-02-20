@@ -1,0 +1,44 @@
+.main-goods{
+  margin: 24px auto 0;
+  padding: 0 0 40px;
+  &__another {
+    width: 100%;
+    ul {
+      margin: 0 4%;
+      display: flex;
+      flex-wrap: wrap;
+      li {
+        display: inline-block;
+        margin: 16px 16px 0 0;
+        .brother {
+          color: #0099e8;
+        }
+      }
+    }
+  }
+
+  &__contents {
+    width: 1100px;
+    margin: 0 auto;
+    h2 {
+      font-size: 22px;
+      margin: 24px 0 8px;
+    }
+    &__lists {
+      width: 92%;
+      margin: 0 auto;
+
+      .main__pick__box__lists__list {
+        margin:0 20px 20px 0px;
+      }
+      
+    }
+
+  }
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: block;
+}
