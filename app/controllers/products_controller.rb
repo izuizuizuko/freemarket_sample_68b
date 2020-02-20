@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
   def index
   end
 
@@ -23,6 +24,11 @@ class ProductsController < ApplicationController
   private
   def product_params
     params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, images_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+
+
+  def show
   end
 
 end
