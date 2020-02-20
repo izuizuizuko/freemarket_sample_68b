@@ -1,7 +1,7 @@
 .category-main {
     font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
     margin: 40px auto;
-    .category-main__pc {
+    &__pc {
         display: block;
         width: 700px;
         margin: 0 auto;
@@ -10,7 +10,7 @@
             font-size: 22px;
         }
 
-        .category-main__pc__ls {
+        &__ls {
             text-align: center;
             .parents {
                 float: left;
@@ -28,7 +28,7 @@
             }
         }
 
-        .category-main__pc__lsbox {
+        &__lsbox {
             margin: 280px auto 0px auto;
             .lsbox-ones {
                 margin: 30px auto;
