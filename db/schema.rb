@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_17_073154) do
+ActiveRecord::Schema.define(version: 2020_02_19_024534) do
 
   create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -21,8 +21,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_073154) do
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "ancestry"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry"
   end
 
   create_table "images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -32,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_073154) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "prodacts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "user_id", null: false
     t.string "name", null: false
     t.string "detail", null: false
@@ -59,15 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_073154) do
     t.integer "telnumber", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["birthday"], name: "index_users_on_birthday", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["family_name"], name: "index_users_on_family_name", unique: true
-    t.index ["first_name"], name: "index_users_on_first_name", unique: true
-    t.index ["kana_family_name"], name: "index_users_on_kana_family_name", unique: true
-    t.index ["kana_first_name"], name: "index_users_on_kana_first_name", unique: true
-    t.index ["nickname"], name: "index_users_on_nickname", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["telnumber"], name: "index_users_on_telnumber", unique: true
   end
 
 end
