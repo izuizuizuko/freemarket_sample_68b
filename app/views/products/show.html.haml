@@ -1,0 +1,322 @@
+= render 'toppage/header'
+.item
+
+  .item__box
+    .item__box__name
+      Apple(アップル)MacBook Pro 15-インチ Early 2010
+    .item__box__main
+      .item__box__main__image
+        = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__box__main__image")        
+      %ul.item__box__main__sub__img
+        %li
+          = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__box__main__sub")
+        %li
+          = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__box__main__sub")
+        %li
+          = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__box__main__sub")
+
+
+    .item__box__price
+      .item__box__price__include
+        33,000円
+      .item__box__price__fee
+        .item__box__price__fee__tax
+          税込
+        .item__box__price__fee__postage
+          送料込み
+
+    .item__box__btn
+      = link_to "#", class:"item__box__btn__bn" do
+        購入画面に進む
+
+
+    .item__box__information__table
+      %table
+        %tbody
+          %tr
+            %th 出品者
+            %td hoge
+          %tr
+            %th カテゴリー
+            %td メンズ
+          %tr
+            %th ブランド
+            %td 
+          %tr
+            %th 商品状態
+            %td 未使用
+          %tr
+            %th 配送料の負担
+            %td 出品者
+          %tr
+            %th 配送方法
+            %td 
+          %tr
+            %th 配送元地域
+            %td 青森県
+          %tr
+            %th 発送目安日数
+            %td 1~2日
+          %tr
+
+    .item__box__detail
+      ご覧いただきありがとうございます。
+      %br
+      今回出品しますのは、 
+      %br『MacBookPro 15.4inch 2010年モデル 』です！
+      %br 商品の状態は良好ですが、中古品なりの使用感があります。
+      %br この機会に格安でいかがでしょうか。
+      ［スペック情報］
+      ◾️モデル：MD313J/A(Mid2010)
+      %br
+      ◾️ディスプレイ：15.4inch
+      %br
+      ◾️CPU：Corei5 2.53GHz
+      %br
+      ◾️メモリ：4GB
+      %br
+      ◾️HDD:500GB
+      %br
+      ◾️バッテリー充放電回数：136回
+      %br
+      ◾️状態：正常
+      %br
+      ◾️付属品：本体のみ 
+      %br
+      ◾️商品状態：良好
+
+  .item__others
+    = link_to "#" do
+      〇〇さんのその他の出品
+      .item__others__lists
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+                
+
+  
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+          .item__others__lists
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+                
+
+  
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+  .item__others
+    = link_to "#" do
+      その他の商品 
+      .item__others__lists
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+                
+
+  
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+          .item__others__lists
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+                
+
+  
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+
+        .item__others__lists__list
+          = link_to "#", class:".item__others__lists__list__a" do
+            .item__others__lists__list__a__image
+              = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
+            .item__others__lists__list__a__text
+              .item__others__lists__list__a__text__name
+                product3
+              .item__others__lists__list__a__text__box
+                .item__others__lists__list__a__text__box__price
+                  1000円
+                  .item__others__lists__list__a__text__box__price__box1
+                    .item__others__lists__list__a__text__box__price__box1__icon
+                      🌟
+                    .item__others__lists__list__a__text__box__price__box1__um
+                      77
+                .item__others__lists__list__a__text__box__tax  
+                  (税込)
+
+
+
+
+= render 'toppage/footer'
