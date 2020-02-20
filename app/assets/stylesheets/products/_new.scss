@@ -1,0 +1,140 @@
+body{
+  position: relative;
+  min-height: 100%;
+  color: rgb(51, 51, 51);
+  background-color: rgb(245, 245, 245);
+  font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+  font-size: 14px;
+
+  header{
+    height: 130px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .main-box{
+      width: 700px;
+      background-color: #ffff;
+      height: 100%;
+      &__form{
+        &__group{
+          padding: 40px;
+          border-bottom: solid 1px #eee;
+          &__title{
+            font-weight: 600;
+            color: black;
+            margin: 16px 0 16px 0;
+            &__s{
+              background-color: red;
+              color:white;
+              margin-left: 8px;
+              border-radius: 2px;
+              font-size: 10;
+            }
+          }
+          &__text{
+            margin-top: 16px;
+          }
+          &__image-form{
+            margin-top: 16px;
+            height: 150px;
+            width: 100%;
+            background-color: rgb(233, 230, 230);
+            border: dashed;
+
+          }
+          &__ino{
+            color: red;
+            margin-top: 16px;
+          }
+          &__name-form{
+            margin-top: 16px;
+            height: 40px;
+            width: 100%;
+          }
+          &__explanation-form{
+            margin-top: 16px;
+            height: 120px;
+            width: 100%;
+          }
+          &__title-box{
+            margin-top: 30px;
+          }
+          &__name{
+            color: rgb(136, 136, 136);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin-bottom: 24px;
+          }
+          &__price-box{
+            display: flex;
+            justify-content: space-between;
+            margin: 16px 0 16px 0;
+            &__title-price{
+              font-weight: 600;
+              color: black;
+              line-height: 40px;
+            }
+            &__select{
+              &__mark{
+                font-size: 14px;
+                margin-right: 8px;
+              }
+              &__number[type="number"] {
+                width: 300px;
+                height: 40px;
+              }
+            }
+          }
+          &__submit-box{
+            text-align: center;
+            &__button{
+              cursor: pointer;
+              cursor: hand;
+              color: seashell;
+              height: 60px;
+              width: 400px;
+              background-color: red;
+              margin-bottom: 24px;
+              font-weight: 900;
+              font-size: 17px;
+            }
+            &__return{
+              background-color: #ccc;
+              border-color: transparent;
+              height: 60px;
+              width: 400px;
+              display: block;
+              margin: 0 auto;
+              &__text{
+                font-weight: 900;
+                font-size: 17px;
+                color: #222;
+                line-height: 60px;
+              }
+            }
+          }
+          &__attention{
+            margin-top: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .explanation-form{
+    width: 100%;
+  }
+  .footer-product{
+    padding: 40px 0px 41px;
+    text-align: center;
+  }
+
+}
