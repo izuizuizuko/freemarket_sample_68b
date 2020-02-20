@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
   resources :toppage, only: :index
   resources :categories, only: [:show, :index]
+  resources :products, only: :show
 end
-
