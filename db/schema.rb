@@ -58,15 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_19_024534) do
     t.integer "telnumber", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["birthday"], name: "index_users_on_birthday", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["family_name"], name: "index_users_on_family_name", unique: true
-    t.index ["first_name"], name: "index_users_on_first_name", unique: true
-    t.index ["kana_family_name"], name: "index_users_on_kana_family_name", unique: true
-    t.index ["kana_first_name"], name: "index_users_on_kana_first_name", unique: true
-    t.index ["nickname"], name: "index_users_on_nickname", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["telnumber"], name: "index_users_on_telnumber", unique: true
   end
 
 end
