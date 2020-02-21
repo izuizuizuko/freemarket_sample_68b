@@ -1,7 +1,0 @@
-ja:
-  antivirus:
-    message: に不適切な単語が含まれています
-    profane_words:
-      - xxx
-      - yyy
-      - zzz
