@@ -13,9 +13,10 @@ Rails.application.routes.draw do
   resources :toppage, only: :index
 
   resources :products, only: [:index, :new, :create, :show]
+  resources :categories, only: [:show, :index]
 end
 
 
-  resources :categories, only: [:show, :index]
- 
+
+
 
