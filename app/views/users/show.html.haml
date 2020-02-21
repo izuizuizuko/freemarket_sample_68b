@@ -10,7 +10,8 @@
         .my-main__top__box
           .my-main__top__box__image
             = image_tag('icon/member_photo_noimage_thumb.png', class:"my-icon")
-            %h2.nickname ユーザー名
+            %h2.nickname 
+              = @user.nickname
             .my-main__top__box__image__date
               %p.goodsnum 出品数
               %span.goodssum 0
