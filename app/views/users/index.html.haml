@@ -5,28 +5,9 @@
     = render 'left-memu'
 
     .my-main
-      .my-main__top
-        = image_tag('mypage-img.png', class:"my-back")
-        .my-main__top__box
-          .my-main__top__box__image
-            = image_tag('icon/member_photo_noimage_thumb.png', class:"my-icon")
-            %h2.nickname ユーザー名
-            .my-main__top__box__image__date
-              %p.goodsnum 出品数
-              %span.goodssum 0
-      .my-main__goods
-        %h2.title 購入した商品
-        %ul.buys
-          %li{class:"buys__status active", id:"now"}
-            %span(href='#') 取引中
-          %li{class: "buys__status", id:"ago"}
-            %span(href='#') 過去の取引
-        .my-main__goods__box
-          = image_tag('logo/logo.png', class:"back-img")
-          %ul.buy-goods
-            %li{class: 'buy-goods__status show'} 取引中の商品はありません
-            %li{class: 'buy-goods__status'} 過去に取引した商品はありません
+      .logout
+        .logout__box
+          .logout__box__bm
+            = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logout__box__bm__btn"
 
 = render 'toppage/footer'
-
-

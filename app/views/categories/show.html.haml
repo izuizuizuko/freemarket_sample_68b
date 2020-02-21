@@ -2,6 +2,8 @@
 
 .main-goods
   .main-goods__another
+    .main-goods__another__link
+      = link_to "カテゴリー一覧から探す", "/categories"
     %ul 
       - @categories.each do |child|
         %li 
