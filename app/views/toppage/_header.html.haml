@@ -14,24 +14,14 @@
             カテゴリー
           %ul.header__inner__nav__left__ca__parents
             = render partial:'categories/ca-header', collection: @parents, as: "parent"
-            = link_to "カテゴリー一覧", "/categories", class: "allcate"
-              
 
       .header__inner__nav__right
         .header__inner__nav__right__log
-          - if user_signed_in?
-          - else
-            = link_to "/users/sign_in" do
-              ログイン
+          = link_to "/users/sign_in" do
+            ログイン
         .header__inner__nav__right__sign
-          - if user_signed_in?
-          - else
-            = link_to "/users/sign_up" do
-              新規会員登録
+          = link_to "/users/sign_up" do
+            新規会員登録
         .header__inner__nav__right__sign
-          - if user_signed_in?
-            = link_to "マイページ", user_path(current_user), data: {"turbolinks" => false}
-          - else
-            = link_to "/users/sign_in" do
-              マイページ
-            
+          = link_to "/users" do
+            マイページ
