@@ -1,8 +1,5 @@
 class ProductsController < ApplicationController
 
-  def new
-    @product = Product.new
-    @product.images.build
+  def show
   end
-
 end

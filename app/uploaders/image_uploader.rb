@@ -2,20 +2,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-
-  process resize_to_fit: [500, 500]
-  version :thumb do
-    process resize_to_fit: [300, 300]
-  end
-  # Choose what kind of storage to use for this uploader:
-  storage :file
-  process :convert => 'jpg'
-  def extension_white_list
-    %w(jpg jpeg gif png)
-  end
-  # storage :fog
-  
-
   process resize_to_fit: [800, 800]
   # Choose what kind of storage to use for this uploader:
   if Rails.env.development? || Rails.env.test?
@@ -23,7 +9,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   else
     storage :fog
   end
-
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -62,6 +47,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
 end
-

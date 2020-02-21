@@ -38,7 +38,7 @@
 - belongs_to :user
 
 
-## productsテーブル
+## prodactsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|string|null: false, foreign_key: true|
