@@ -5,4 +5,6 @@ class ProductsController < ApplicationController
     @product.images.build
   end
 
+
+
 end

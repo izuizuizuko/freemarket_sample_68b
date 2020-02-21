@@ -13,4 +13,5 @@ class User < ApplicationRecord
   validates :telnumber, presence: true, numericality: { only_integer: true}
 
   has_many :cards
+  has_many :products
 end
