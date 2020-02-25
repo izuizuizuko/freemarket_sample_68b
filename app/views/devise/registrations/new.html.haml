@@ -2,9 +2,10 @@
   .account-page__inner1.clearfix
     .page__header
       %h1
-        = link_to image_tag("logo/logo.png", class:"header__logo")
+        = link_to image_tag("logo/logo.png", class:"header__logo"), root_path
     .page__main
-      %h2 会員情報入力
+      %p.pagenum 1 / 2
+      %h2.title 会員情報入力
       .page__main__forms
         = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
           = devise_error_messages!
@@ -58,7 +59,7 @@
               = f.label :生年月日
               %span 必須
             .field-input
-              = f.date_select :birthday, {use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)}, {class:"select-box"}
+              = f.date_select :birthday, {prompt:"--", use_month_numbers: true,start_year: 1930, end_year: (Time.now.year - 10), default: Date.new(1989, 1, 1)}, {class:"select-box"}
             %p.annotation ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
 
           .actions
@@ -70,6 +71,6 @@
         %p メルカリ利用規約
         %p 特定商取引に関する表記
       .account-page__footer__logo
-        = link_to image_tag('logo/logo-white.png', class:"footer__logo")
+        = link_to image_tag('logo/logo-white.png', class:"footer__logo"), root_path
         %p
         ©Merrcari, inc
