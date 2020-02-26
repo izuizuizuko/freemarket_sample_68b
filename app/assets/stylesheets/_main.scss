@@ -2,7 +2,7 @@
   background-color: #f8f8f8;
   &__image1{
     height: 560px;
-    background-image: url("pict/bg-mainVisual-pict_pc.jpg");
+    background-image: url("/images/bg-mainVisual-pict_pc.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top center;
@@ -122,7 +122,7 @@
     }
   }
   &__image2{
-    background-image: url("pict/bg-topMiddleDl-pict.jpg");
+    background-image: url("/images/bg-topMiddleDl-pict.jpg");
     background-size: cover;
     height: 400px;
     background-position: bottom right;
@@ -276,7 +276,7 @@
     }
   }
   &__image3{
-    background-image: url("pict/bg-appBanner-pict.jpg");
+    background-image: url("/images/bg-appBanner-pict.jpg");
     padding: 100px 40px;
     position: relative;
     background-size: cover;

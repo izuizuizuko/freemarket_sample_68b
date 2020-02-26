@@ -38,6 +38,7 @@ class ProductsController < ApplicationController
 
 
 
+
   def show
   end
 
@@ -45,6 +46,7 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, images_attributes: [:image]).merge(user_id: current_user.id)
   end
+
 
 
 end

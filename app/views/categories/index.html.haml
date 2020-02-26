@@ -4,11 +4,11 @@
   .category-main__pc
     %h2 カテゴリ一覧
     .category-main__pc__ls
-      - @parents.each do |parent|
+      - @parents.roots.each do |parent|
         = link_to("#{parent.name}", category_path(id: parent.id), {class: "parents"})
     .category-main__pc__lsbox
       .lsbox-ones
-        - @parents.each do |parent|
+        - @parents.roots.each do |parent|
           .lsbox-ones__name
             = link_to("　#{parent.name}", category_path(id: parent.id), {class: "parent"})
             - parent.children.each do |child|

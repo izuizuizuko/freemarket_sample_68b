@@ -1,107 +1,28 @@
-a{
-  text-decoration: none;
-}
-
-.main{
-  font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-  &__box{
-    margin: 40px auto;
-    width: 1040px;
-    display: flex;
+body{
+    background-color: whitesmoke;
+  }
   
-    .my-main {
-      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
-      width: 720px;
-    
-        &__top {
-            position: relative;
-            text-align: center;
-            height: 155px;
-            .my-back {
-              height: 100%;
-              width: 100%;
-            }
-            &__box {
-                position: absolute;
-                font-weight: bold;
-                right: calc(50% - 40px);
-                top: 20%;
-                &__image {
-                    .my-icon {
-                        text-align: center;
-                        height: 60px;
-                        width: 60px;
-                    }
-                    .nickname {
-                        font-size: 14px;
-                        font-weight: bold;
-                    }
-                    &__date {
-                        display: flex;
-                        font-size: 14px;
-                        .goodsnum {
-                            margin-right: 10px;
-                        }
-                        .goodssum{
-                            font-size: 16px;
-                            margin-top: 1px;
-                        }
-                    }
-                 }   
-            }
+  .logout{
+    height: 115px;
+    width: 720px;
+    background-color: white;
+    padding-top: 55px;
+    &__box{
+      height: 60px;
+      width: 300px;
+      background-color: red;
+      margin: 0px auto;
+      &__bm{
+        margin: 0 auto;
+        text-align: center;
+        line-height: 60px;
+        &__btn{
+          color: seashell;
+          text-decoration: none;
         }
-    
-        &__goods {
-            margin: 40px 0 0;
-            background: #fff;
-            .title {
-                background: #fafafa;
-                font-size: 16px;
-                line-height: 72px;
-                color: black;
-                padding-left: 20px;
-            }
-    
-            .buys {
-                background: #eee;
-                display: flex;
-                line-height: 72px;
-                text-align: center;
-                    .buys__status {
-                        width: 50%;
-                        font-size: 22px;
-                        color:black;
-                    }
-                    .active {
-                        width: 50%;
-                        background-color: white;
-                    }
-                    :not(.active):hover {
-                        opacity: 0.5;
-                        transition: .8s;
-                    }
-                }
-    
-            &__box{
-                text-align: center;
-                font-size: 16px;
-                color: #ccc;
-                padding: 40px 0px;
-                .back-img {
-                  height: 30%;
-                  width: 30%;
-                }
-                .buy-goods {
-                    li {
-                        display: none;
-                    }
-                    .show {
-                        display: block;
-                    }
-                }
-            }
-        }
+      }
     }
   }
-}
-
+  
+  
+  

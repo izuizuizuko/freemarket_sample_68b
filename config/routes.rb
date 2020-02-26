@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {   registrations: 'users/registrations',
+                                      sessions: 'users/sessions' }
   root to:'toppage#index'
   
   resources :users, only: [:show, :index]
@@ -18,7 +19,11 @@ Rails.application.routes.draw do
       get 'category_grandchildren', defaults: { format: 'json' }
     end
   end
+
+
   resources :categories, only: [:show, :index]
+  resources :addresses, only: [:new, :create]
+
 end
 
 

@@ -1,0 +1,58 @@
+#account-page.account-page
+  .account-page__inner1.clearfix
+    .page__header
+      %h1
+        = link_to image_tag("logo/logo.png", class:"header__logo"), root_path
+    .page__main
+      %p.pagenum 2 / 2
+      %h2.title  本人情報入力
+      .page__main__forms
+        = form_for @address, local: true do |f|
+          = render 'layouts/error_messages', model: f.object
+          .field
+            .field-label
+              = f.label :郵便番号
+              %span.nomal 任意
+            .field-input
+              = f.text_field :address_number, autofocus: true, :placeholder => "例）1234567"
+          .field
+            .field-label
+              = f.label :都道府県
+              %span.nomal 任意
+            .field-input
+              = f.select :prefecture, ["北海道","青森県","岩手県", "宮城県", "秋田県", "山形県", "福島県", "茨城県", "栃木県", "群馬県", "埼玉県", "千葉県",
+                                       "東京都", "神奈川県", "新潟県", "富山県", "石川県", "福井県","山梨県", "長野県","岐阜県","静岡県","愛知県", "三重県",
+                                       "滋賀県","京都府", "大阪府", "兵庫県", "奈良県", "和歌山県","鳥取県", "島根県", "岡山県", "広島県", "山口県", "徳島県",
+                                       "香川県", "愛媛県", "高知県", "福岡県","佐賀県", "長崎県", "熊本県", "大分県", "宮崎県", "鹿児島県", "沖縄県"],prompt:"--"
+          .field
+            .field-label
+              = f.label :市区町村
+              %span.nomal 任意
+            .field-input
+              = f.text_field :city, autofocus: true, :placeholder => "例）福岡市青区"
+          .field
+            .field-label
+              = f.label :番地
+              %span.nomal 任意
+            .field-input
+              = f.text_field :town, autofocus: true, :placeholder => "例）緑山1-1-1"
+          .field
+            .field-label
+              = f.label :建物名
+              %span.nomal 任意
+            .field-input
+              = f.text_field :house_number, autofocus: true, :placeholder => "例）黄ビル111"
+          .actions2
+            = link_to "スキップする", root_path, class: 'skip'
+          .actions
+            = f.submit "登録する", class: 'btn'
+
+    .account-page__footer
+      %nav
+        %p プライバシーポリシー
+        %p メルカリ利用規約
+        %p 特定商取引に関する表記
+      .account-page__footer__logo
+        = link_to image_tag('logo/logo-white.png', class:"footer__logo"), root_path
+        %p
+        ©Merrcari, inc

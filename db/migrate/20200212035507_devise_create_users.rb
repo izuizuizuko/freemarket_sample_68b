@@ -19,7 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :kana_family_name,   null: false
       t.string :kana_first_name,    null: false
       t.date :birthday,             null: false
-      t.integer :telnumber,         null: false
+      t.string :telnumber,          null: false
 
       t.timestamps null: false
     end
