@@ -2,18 +2,23 @@
   = link_to image_tag('logo/logo.png', width:'180px', class:"icon-box"), root_path
 %main
   .main-box
-    = form_for @product,  html: { class: "main-box__form" } do |f|
+    = form_for @product,  html: {id: "item-dropzone"} do |f|
       .main-box__form__group
         .main-box__form__group__title-box
-          %label.main-box__form__group__title
+          %h3.main-box__form__group__title
             出品画像
             %span.main-box__form__group__title__s
               必須
         %p.main-box__form__group__text
           最大10枚までアップロードできます
-        .main-box__form__group__image-form
-          = f.fields_for :images do |i|
-            = i.file_field :image
+        
+        = f.fields_for :images do |i|
+          .main-box__form__group__image-form
+            = i.file_field :image, class: "main-box__form__group__image-form__field"
+            %p
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをダウンロード
         %p.main-box__form__group__ino
           画像がありません
 
@@ -40,7 +45,9 @@
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :category_id, Product.categories.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+          = f.collection_select :category_id, @category, :id, :name, {prompt: "---"}, class: "main-box__form__group__name-form", id: "category_select"
+        .main-box__form__group__children
+
         .main-box__form__group__title-box
         %label.main-box__form__group__title
           商品の状態
@@ -70,7 +77,7 @@
           .main-box__form__group__price-box__select
             %span.main-box__form__group__price-box__select__mark
               ¥
-            = f.number_field :price, min:300, max:9999999, class: "main-box__form__group__price-box__select__number", id: "sell-price", placeholder: "0", value:"", style:"text-align: right"
+            = f.number_field :price, min:300, max:999999, class: "main-box__form__group__price-box__select__number", id: "sell-price", placeholder: "0", value:"", style:"text-align: right"
         %p.main-box__form__group__price-box__commission
           販売手数料（10%)
       .main-box__form__group
