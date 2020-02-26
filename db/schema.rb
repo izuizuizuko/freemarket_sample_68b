@@ -49,7 +49,9 @@ ActiveRecord::Schema.define(version: 2020_02_25_070405) do
     t.integer "category_id", null: false
     t.integer "price", null: false
     t.string "condition", null: false
-    t.string "status", null: false
+    t.string "status"
+    t.string "burden", null: false
+    t.string "days", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

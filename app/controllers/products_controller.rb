@@ -13,14 +13,16 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    if @product.save
-      params[:product_images][:image].each do |image|
-        @product_images.create(image: image, product_id: @product.id)
+    respond_to do |format|
+      if @product.save
+          params[:product_images][:image].each do |image|
+            @product.images.create(image: image, product_id: @product.id)
+          end
+        format.html{redirect_to root_path}
+      else
+        @product.images.build
+        render "new"
       end
-      @product.images.build
-      redirect_to action: 'index'
-    else
-      render "new"
     end
   end
 
@@ -44,7 +46,7 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, images_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, :burden, :days, images_attributes: [:image]).merge(user_id: current_user.id)
   end
 
 
