@@ -1,0 +1,42 @@
+.page__main__forms {
+  width: 720px;
+  padding: 50px 180px;
+  background-color: white;
+  &__date {
+    display: flex;
+    border-bottom: 1px solid #f5f5f5;
+    padding: 10px 0;
+    p.price {
+     font-weight: bold; 
+    }
+  }
+
+  &__money {
+    display: flex;
+    justify-content: space-around;
+    padding: 50px 0;
+    border-bottom: 1px solid #f5f5f5;
+    p.money {
+      font-size: 20px;
+      font-weight: bold; 
+    }
+    h3.money {
+      font-size: 30px;
+    }
+  }
+  &__buy {
+    padding-top: 50px;
+    h3.buytitle {
+      font-size: 15px;
+    }
+    &__dates {
+      display: flex;
+      justify-content: space-around;
+      padding-bottom: 50px;
+      p.card-date {
+        font-size: 17px;
+        font-weight: normal;
+      }
+    }
+  }
+}

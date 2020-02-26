@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   root to:'toppage#index'
   
   resources :users, only: [:show, :index]
-  resources :cards, only: [:new, :show] do
+  resources :cards, only: [:new, :show, :index, :edit] do
     collection do
-      post 'show', to: 'cards#show'
       post 'pay', to: 'cards#pay'
       post 'delete', to: 'cards#delete'
+      post 'buy/:id', to: 'cards#buy'
     end
   end
   resources :toppage, only: :index

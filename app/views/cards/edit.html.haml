@@ -1,0 +1,57 @@
+- if flash[:notice]
+  %p.notic 
+    = flash[:notice]
+
+#account-page.account-page
+  .account-page__inner1.clearfix
+    .page__header
+      %h1
+        = link_to image_tag("logo/logo.png", class:"header__logo")
+    .page__main
+      %h2 購入内容の確認
+    .page__main__forms
+      .page__main__forms__date
+        .main__pick__box__lists__list__a__image
+          = image_tag "#{@product.images[0].image}"
+        .page__main__forms__text
+          %p 
+            = @product.name
+          %p.price
+            ￥#{@product.price}
+
+      .page__main__forms__money
+        %p.money 支払い金額
+        %h3.money
+          ￥#{@product.price}
+      .page__main__forms__buy
+        %h3.buytitle 支払い方法
+        - if @default_card_information.blank?
+          %p 購入にはクレジットカードの登録が必要です。
+          %br こちらから登録する。
+        - else
+          .page__main__forms__buy__dates
+            %p.card-date
+              = "**** **** **** " + @default_card_information.last4
+            %p.card-date
+              - exp_month = @default_card_information.exp_month.to_s
+              - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
+              = exp_month + " / " + exp_year
+        %h3.buytitle 配達先
+        - if @address.blank?
+          %p 購入には配達先の登録が必要です。
+          %br こちらから登録する。
+        - else
+
+        = form_tag(action: :buy, method: :post) do
+          %button.btn 購入する
+
+
+    .account-page__footer
+      %nav
+        %p プライバシーポリシー
+        %p メルカリ利用規約
+        %p 特定商取引に関する表記
+      .account-page__footer__logo
+        = link_to image_tag('logo/logo-white.png', class:"footer__logo")
+        %p
+        ©Merrcari, inc
