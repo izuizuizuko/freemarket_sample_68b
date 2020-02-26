@@ -33,32 +33,14 @@
         width: 560px;
         margin: 0 auto;
         height: 346px;
+        text-align: center;
+        padding: 15px;
       }
+
       &__sub{
-        width: 100%;
-        display: flex;
-        margin-top: 10px;
+        text-align: center;
         
-        &__img{
-          display: flex;
-          justify-content: center;
-    
-          &__li{
-            object-fit: cover;
-            height: 87px;
-            width: 25%;
-            margin: 0 10px 0 0;
-            
-          }
       }
-
-  }         
-
-  
-
-
-
-
 
         }
 
