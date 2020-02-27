@@ -19,32 +19,27 @@
           税込
         .item__box__price__fee__postage
           送料込み
-          
-
-
-
-
-
-
-
-
-
-
-
-
-    .item__box__btn
-      
-      = link_to "#", class:"item__box__btn__bn" do
-        購入画面に進む
-
+    .item__box__method
+      .item__box__method__box
+        - if user_signed_in? && current_user.id == @product.user_id
+          .item__box__method__box__btn 
+            = link_to "#", class:"item__box__method__box_btn"do
+              編集
+          .item__box__method__box__btn2
+            = link_to "#", class:"item__box__method__box_btn"do
+              削除
+        - else 
+          .item__box__method__box__btn3
+            = link_to "#", class:"item__box__method__box_btn"do
+              購入画面に進む 
 
     .item__box__information__table
       %table
         %tbody
           %tr
             %th 出品者
-            %td  
-              = link_to "#{@product.user.nickname}", user_path, class: "user-name-string"; 
+            %td 
+              = @product.user.nickname
           %tr
             %th カテゴリー
             %td 
@@ -63,161 +58,22 @@
               .item-condition
                 = @product.condition  
           %tr
+            %th 送料負担
+            %td  
+              .item-burden
+                = @product.burden
+          %tr
             %th 配送元地域
             %td 
               .item-detail
-                = @product.status
-          %tr
+                = @address.prefecture
 
+          %tr
+            %th 発送日数
+            %td 
+              .item-days
+                = @product.days
     .item__box__detail
       = @product.detail
-
-  .item__others
-    = link_to "#" do
-      "#{@product.user.nickname}"さんのその他の出品
-    .item__others__lists__list
-      = link_to "#", class:".item__others__lists__list__a" do
-        .item__others__lists__list__a__image
-          = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-        .item__others__lists__list__a__text
-          .item__others__lists__list__a__text__name
-            product3
-          .item__others__lists__list__a__text__box
-            .item__others__lists__list__a__text__box__price
-              1000円
-              .item__others__lists__list__a__text__box__price__box1
-                .item__others__lists__list__a__text__box__price__box1__icon
-                  🌟
-                .item__others__lists__list__a__text__box__price__box1__um
-                  77
-            .item__others__lists__list__a__text__box__tax  
-              (税込)
-            
-
-  -# - if @user_products
-  -#     .product-detail__bottom__others
-  -#       .product-detail__bottom__others__title
-  -#         = link_to "#{product.user.nickname}さんのその他の出品", root_path
-  -#         .item__others__lists
-  -#           .item__others__lists__list
-  -#             - @user_products.each do |product|
-  -#                 = link_to "/m#{product.id}", class: 'a-non' do
-  -#                   = image_tag(product.images[0].image_url.url, size: '220x220')
-
-  -#                   .product-detail__bottom__others__box-item--foot
-  -#                     .product-detail__bottom__others__box-item--foot-name #{product.name}
-  -#                     .product-detail__bottom__others__box-item--foot-price ¥ #{converting_to_jpy(product.price)}
-  -#                     .product-detail__bottom__others__box-item--foot-tax (税込)
-  -# -#             = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-  -#           .item__others__lists__list__a__text
-  -#             .item__others__lists__list__a__text__name
-  -#               product3
-  -#             .item__others__lists__list__a__text__box
-  -#               .item__others__lists__list__a__text__box__price
-  -#                 1000円
-  -#                 .item__others__lists__list__a__text__box__price__box1
-  -#                   .item__others__lists__list__a__text__box__price__box1__icon
-  -#                     🌟
-  -#                   .item__others__lists__list__a__text__box__price__box1__um
-  -#                     77
-  -#               .item__others__lists__list__a__text__box__tax  
-  -#                 (税込)
-                
-
-  
-  -#       .item__others__lists__list
-  -#         = link_to "#", class:".item__others__lists__list__a" do
-  -#           .item__others__lists__list__a__image
-  -#             = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-  -#           .item__others__lists__list__a__text
-  -#             .item__others__lists__list__a__text__name
-  -#               product3
-  -#             .item__others__lists__list__a__text__box
-  -#               .item__others__lists__list__a__text__box__price
-  -#                 1000円
-  -#                 .item__others__lists__list__a__text__box__price__box1
-  -#                   .item__others__lists__list__a__text__box__price__box1__icon
-  -#                     🌟
-  -#                   .item__others__lists__list__a__text__box__price__box1__um
-  -#                     77
-  -#               .item__others__lists__list__a__text__box__tax  
-  -#                 (税込)
-
-  -#       .item__others__lists__list
-  -#         = link_to "#", class:".item__others__lists__list__a" do
-  -#           .item__others__lists__list__a__image
-  -#             = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-  -#           .item__others__lists__list__a__text
-  -#             .item__others__lists__list__a__text__name
-  -#               product3
-  -#             .item__others__lists__list__a__text__box
-  -#               .item__others__lists__list__a__text__box__price
-  -#                 1000円
-  -#                 .item__others__lists__list__a__text__box__price__box1
-  -#                   .item__others__lists__list__a__text__box__price__box1__icon
-  -#                     🌟
-  -#                   .item__others__lists__list__a__text__box__price__box1__um
-  -#                     77
-  -#               .item__others__lists__list__a__text__box__tax  
-  -#                 (税込)
-  -#         .item__others__lists
-  -#       .item__others__lists__list
-  -#         = link_to "#", class:".item__others__lists__list__a" do
-  -#           .item__others__lists__list__a__image
-  -#             = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-  -#           .item__others__lists__list__a__text
-  -#             .item__others__lists__list__a__text__name
-  -#               product3
-  -#             .item__others__lists__list__a__text__box
-  -#               .item__others__lists__list__a__text__box__price
-  -#                 1000円
-  -#                 .item__others__lists__list__a__text__box__price__box1
-  -#                   .item__others__lists__list__a__text__box__price__box1__icon
-  -#                     🌟
-  -#                   .item__others__lists__list__a__text__box__price__box1__um
-  -#                     77
-  -#               .item__others__lists__list__a__text__box__tax  
-  -#                 (税込)
-                
-
-  
-  -#       .item__others__lists__list
-  -#         = link_to "#", class:".item__others__lists__list__a" do
-  -#           .item__others__lists__list__a__image
-  -#             = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-  -#           .item__others__lists__list__a__text
-  -#             .item__others__lists__list__a__text__name
-  -#               product3
-  -#             .item__others__lists__list__a__text__box
-  -#               .item__others__lists__list__a__text__box__price
-  -#                 1000円
-  -#                 .item__others__lists__list__a__text__box__price__box1
-  -#                   .item__others__lists__list__a__text__box__price__box1__icon
-  -#                     🌟
-  -#                   .item__others__lists__list__a__text__box__price__box1__um
-  -#                     77
-  -#               .item__others__lists__list__a__text__box__tax  
-  -#                 (税込)
-
-  -#       .item__others__lists__list
-  -#         = link_to "#", class:".item__others__lists__list__a" do
-  -#           .item__others__lists__list__a__image
-  -#             = image_tag("https://s3-ap-northeast-1.amazonaws.com/mercarimaster/uploads/captured_image/content/13/a007.png", class: "item__others__lists__list__a__image__i1")
-  -#           .item__others__lists__list__a__text
-  -#             .item__others__lists__list__a__text__name
-  -#               product3
-  -#             .item__others__lists__list__a__text__box
-  -#               .item__others__lists__list__a__text__box__price
-  -#                 1000円
-  -#                 .item__others__lists__list__a__text__box__price__box1
-  -#                   .item__others__lists__list__a__text__box__price__box1__icon
-  -#                     🌟
-  -#                   .item__others__lists__list__a__text__box__price__box1__um
-  -#                     77
-  -#               .item__others__lists__list__a__text__box__tax  
-  -#                 (税込)
-
-
-
 
 = render 'toppage/footer'

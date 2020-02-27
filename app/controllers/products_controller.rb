@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-
+  def index
+  end
   
   def new
     @product = Product.new
@@ -12,14 +13,8 @@ class ProductsController < ApplicationController
     @category = @product.category
     @images = @product.images
     @image = @images.first
+    @address = Address.find_by(user_id: current_user.id)
   end
-
- 
-
-
-
-
-  
 
   
 end

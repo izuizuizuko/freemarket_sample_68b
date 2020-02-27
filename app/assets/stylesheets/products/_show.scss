@@ -85,24 +85,64 @@
         }
       }
 
-    &__btn{
-      text-decoration: none;
-      font-weight: bold;
-      height: 60px;
-      width: 85%;
-      background-color: red;
-      margin: 0 auto;
-      text-align: center;
-      line-height: 60px;
-      font-size: 24px;
-      font-family: 'Source Sans Pro', Helvetica , Arial, '游ゴシック体', 'YuGothic', 'メイリオ', 'Meiryo', sans-serif;
+  &__method{
+    padding-top: 20px;
+    
 
-      &__bn {
-        text-decoration: none;
-        color: #ffffff;
+    &__box{
+      text-align: center;
+      line-height: 50px;
       
+      
+   
+      
+
+      &__btn{
+        background-color: red;
+        width: 30%;
+        display: inline-block;
+        margin-right:20px ;
+        font-weight: bold;
+       
+       
+        a{
+          text-decoration: none;
+          color: white;
+          font-size: 18px;
+        }
       }
+      
+      &__btn2{
+        background-color:gray;
+        width: 30%;
+        display: inline-block;
+        margin-left:20px ;
+       
+        a{
+          text-decoration: none;
+          color: white;
+          font-size: 18px;
+        }
+      }
+      
+      &__btn3{
+        background-color: red;
+        width: 30%;
+        display: inline-block;
+        margin-right:20px ;
+        font-weight: bold;
+       
+       
+        a{
+          text-decoration: none;
+          color: white;
+          font-size: 18px;
+        }
+      }
+      
     }
+
+  }
 
 
 
