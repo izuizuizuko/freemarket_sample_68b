@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :set_product, only: [:show, :destroy]
+
   def index
   end
   
@@ -9,7 +11,6 @@ class ProductsController < ApplicationController
 
 
   def show
-    @product = Product.find(params[:id])
     @category = @product.category
     @images = @product.images
     @image = @images.first
@@ -18,11 +19,15 @@ class ProductsController < ApplicationController
 
 
   def destroy
-    @product = Product.find(params[:id])
     @product.destroy if @product.user_id == current_user.id
-    redirect_to root_path
+    redirect_to root_path if @product.destroy && @product.user_id == current_user.id
   end
         
+
+  private
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
 end
 
