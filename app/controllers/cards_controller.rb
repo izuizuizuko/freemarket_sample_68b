@@ -1,6 +1,5 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_card, only: [:edit, :buy]
   before_action :set_product, only: [:edit, :buy]
   require "payjp"
 
@@ -60,8 +59,9 @@ class CardsController < ApplicationController
 
     def edit
       Payjp.api_key = ENV["KEY"]
+      card = Card.where(user_id: current_user.id).first
       @address = Address.find_by(user_id: current_user.id)
-      if card.exists?
+      if card.present?
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
       end
@@ -70,6 +70,7 @@ class CardsController < ApplicationController
   
     def buy
       Payjp.api_key = ENV['KEY']
+      card = Card.where(user_id: current_user.id).first
       Payjp::Charge.create(
       amount: @product.price,
       customer: card.customer_id, 
@@ -83,9 +84,6 @@ class CardsController < ApplicationController
     end
 
     private
-    def set_card
-      card = Card.where(user_id: current_user.id).first 
-    end
 
     def set_product
       @product = Product.find(params[:id])

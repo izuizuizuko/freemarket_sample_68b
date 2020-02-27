@@ -30,7 +30,7 @@
               削除
         - else 
           .item__box__method__box__btn3
-            = link_to "#", class:"item__box__method__box_btn"do
+            = link_to edit_card_path(id: @product.id), class:"item__box__method__box_btn"do
               購入画面に進む 
 
     .item__box__information__table
