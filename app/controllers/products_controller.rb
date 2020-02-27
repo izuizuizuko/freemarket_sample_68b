@@ -18,9 +18,3 @@ class ProductsController < ApplicationController
 
 end
 
-
-
-
-
-
-
