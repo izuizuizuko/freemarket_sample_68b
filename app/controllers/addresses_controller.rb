@@ -1,6 +1,6 @@
 class AddressesController < ApplicationController
-  before_action :news, only: [:new, :new2]
-  before_action :creates, only: [:create, :create2]
+  before_action :news, only: [:new, :mypage_new]
+  before_action :creates, only: [:create, :mypage_create]
 
   def new
   end
@@ -13,20 +13,21 @@ class AddressesController < ApplicationController
     end
   end
 
-  def new2
+  def mypage_new
   end
 
-  def create2
+  def mypage_create
     if @address.save
       redirect_to user_path(id: current_user.id)
     else
-      render 'new2'
+      render 'mypage_new'
     end
   end
 
   def edit
-    @address = Address.find_by(user_id: current_user.id)
-    redirect_to new2_addresses_path if @address.blank?
+    binding.pry
+    @address = current_user.address
+    redirect_to mypage_new_addresses_path if @address.blank?
   end
 
   def update
