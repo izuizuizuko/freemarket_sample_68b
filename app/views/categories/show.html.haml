@@ -11,9 +11,13 @@
     .main-goods__contents__lists
       - @item.each do |item|
         .main__pick__box__lists__list
-          = link_to "#", class:"main__pick__box__lists__list__a" do
-            .main__pick__box__lists__list__a__image
-              = image_tag "#{item.images[0].image}"
+          = link_to edit_card_path(id: item.id), class:"main__pick__box__lists__list__a" do
+            .product-image
+              - if item.status != "2"
+              - else
+                .sold-date
+                  %p
+              = image_tag "#{item.images[0].image}", class: "product-image__i1"
             .main__pick__box__lists__list__a__text
               .main__pick__box__lists__list__a__text__name
                 = item.name

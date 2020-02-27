@@ -10,6 +10,14 @@
       border-bottom: solid 1px #eeeeee;
       font-weight: bold;
     }
+    &__date {
+        border-bottom: solid 1px #eeeeee;
+        &__box {
+            width: 300px;
+            margin: 0 auto;
+            padding: 10px 0;
+        }
+    }
     &__card {
         padding: 30px 100px 0 0;
         width: 320px;

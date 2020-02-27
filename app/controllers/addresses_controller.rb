@@ -1,10 +1,11 @@
 class AddressesController < ApplicationController
+  before_action :news, only: [:new, :mypage_new]
+  before_action :creates, only: [:create, :mypage_create]
+
   def new
-    @address = Address.new
   end
 
   def create
-    @address = Address.create(address_params)
     if @address.save
       redirect_to root_path
     else
@@ -12,9 +13,39 @@ class AddressesController < ApplicationController
     end
   end
 
+  def mypage_new
+  end
+
+  def mypage_create
+    if @address.save
+      redirect_to user_path(id: current_user.id)
+    else
+      render 'mypage_new'
+    end
+  end
+
+  def edit
+    @address = current_user.addresses.first
+    redirect_to mypage_new_addresses_path if @address.blank?
+  end
+
+  def update
+    address = current_user.addresses.first
+    address.update(address_params)
+    redirect_to user_path(id: current_user.id)
+  end
+
   private
   def address_params
     params.require(:address).permit(:address_number, :prefecture, :city, :town, :house_number).merge(user_id: current_user.id)
+  end
+
+  def news
+    @address = Address.new
+  end
+
+  def creates
+    @address = Address.create(address_params)
   end
 
 end
