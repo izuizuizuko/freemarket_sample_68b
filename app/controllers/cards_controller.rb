@@ -1,10 +1,11 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_product, only: [:edit, :buy]
   require "payjp"
 
   def new
     card = Card.where(user_id: current_user.id)
-    redirect_to action: "show" if card.exists?
+    redirect_to action: "index" if card.exists?
   end
 
   def pay 
@@ -15,7 +16,7 @@ class CardsController < ApplicationController
       ) 
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to action: "show"
+        redirect_to action: "index"
       else
         redirect_to action: "new"
       end
@@ -28,13 +29,13 @@ class CardsController < ApplicationController
       customer.delete
       if card.delete
         redirect_to action: "new", notice: "削除しました"
-      else #削除に失敗した時にアラートを表示します。
-        redirect_to action: "show", alert: "削除できませんでした"
+      else 
+        redirect_to action: "index", alert: "削除できませんでした"
       end
 
   end
 
-  def show 
+  def index
     card = Card.find_by(user_id: current_user.id)
       Payjp.api_key = ENV["KEY"]
       customer = Payjp::Customer.retrieve(card.customer_id)
@@ -56,5 +57,36 @@ class CardsController < ApplicationController
 
     end
 
+    def edit
+      Payjp.api_key = ENV["KEY"]
+      card = Card.where(user_id: current_user.id).first
+      @address = Address.find_by(user_id: current_user.id)
+      if card.present?
+        customer = Payjp::Customer.retrieve(card.customer_id)
+        @default_card_information = customer.cards.retrieve(card.card_id)
+      end
+      
+    end
+  
+    def buy
+      Payjp.api_key = ENV['KEY']
+      card = Card.where(user_id: current_user.id).first
+      Payjp::Charge.create(
+      amount: @product.price,
+      customer: card.customer_id, 
+      currency: 'jpy'
+    )
+    if @product.update(status: 2)
+      redirect_to action: 'show'
+    else
+      redirect_to action: 'edit', notice: "購入できませんでした"
+    end
+    end
+
+    private
+
+    def set_product
+      @product = Product.find(params[:id])
+    end
 
 end

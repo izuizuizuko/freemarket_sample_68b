@@ -1,0 +1,18 @@
+= render 'toppage/header'
+
+.main
+  .main__box
+    = render 'users/left-memu'
+    .my-credit
+      %h2.my-credit__title 本人情報登録
+      .my-credit__date
+        .my-credit__date__box
+          %p 郵便番号　　#{@address.address_number}
+          %p 都道府県　　#{@address.prefecture}
+          %p 市区町村　　#{@address.city}
+          %P 番地　　　　#{@address.town}
+          %p 建物名　　　#{@address.house_number}
+      .my-credit__cards
+        = render 'addressform'
+
+= render 'toppage/footer'

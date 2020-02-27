@@ -15,6 +15,34 @@
         }
       }
     }
+    .main-goods__another__messages  {
+      width: 700px;
+      margin: 73px auto;
+      background-color: white;
+      .thanks {
+        font-size: 30px;
+        text-align: center;
+        padding: 20px 0;
+      }
+      .message {
+        font-size: 15px;
+        text-align: center;
+      }
+      &__nexts {
+        display: flex;
+        justify-content: space-around;
+        padding: 50px 40px;
+        .next {
+          height: 50px;
+          width: 200px;
+          text-align: center;
+          background-color: red;
+          line-height: 50px;
+          font-size: 18px;
+          color: white;
+        }
+      }
+    }
   }
 
   &__contents {

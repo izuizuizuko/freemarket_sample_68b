@@ -1,24 +1,11 @@
 = render 'toppage/header'
 
-.main
-  .main__box
-    = render 'users/left-memu'
-
-    .my-credit
-      %h2.my-credit__title 支払い方法
-      .my-credit__card
-        %h3.page-name 登録しているクレジットカード
-        %figure
-          = image_tag "cards/#{@card_src}", width: '90', height: '50', alt: @card_brand, id: "card_image"
-        .my-credit__cards__number
-          = "**** **** **** " + @default_card_information.last4
-          %br.my-credit__date
-          - exp_month = @default_card_information.exp_month.to_s
-          - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
-          = exp_month + " / " + exp_year
-      .my-credit__btn
-        = form_tag(delete_cards_path, method: :post, id: 'charge-form',  name: "inputForm") do
-          %input{ type: "hidden", name: "card_id", value: "" }
-          %button.dide-btn 削除する
-
+.main-goods
+  .main-goods__another
+    .main-goods__another__messages
+      %h3.thanks 購入が完了しました！
+      %p.message 出品者からの発送をお待ち下さい。
+      .main-goods__another__messages__nexts
+        = link_to "トップページに戻る", root_path, class:"next"
+        = link_to "マイページに戻る", user_path(current_user), data: {"turbolinks" => false}, class:"next"
 = render 'toppage/footer'
