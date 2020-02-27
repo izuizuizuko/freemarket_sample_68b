@@ -6,25 +6,12 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.images.build()
+    @product.images.build
     @category = Category.all.order("id ASC").limit(13)
   end
 
 
-  def create
-    @product = Product.new(product_params)
-    respond_to do |format|
-      if @product.save
-          params[:product_images][:image].each do |image|
-            @product.images.create(image: image, product_id: @product.id)
-          end
-        format.html{redirect_to root_path}
-      else
-        @product.images.build
-        render "new"
-      end
-    end
-  end
+
 
   def category_children
     #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
@@ -34,10 +21,22 @@ class ProductsController < ApplicationController
   # 子カテゴリーが選択された後に動くアクション
   def category_grandchildren
     #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
-    @category_grandchildren = Category.find(params[:child_id]).children
+    @category_grandchildren = Category.find("#{params[:childId]}").children
   end
 
-
+  def create
+    @product = Product.new(product_params)
+      if @product.save
+          params[:images][:image].each do |image|
+            @product.images.create(image: image, product_id: @product.id)
+          end
+        redirect_to root_path
+      else
+        @product.images.build
+        redirect_to action: "new"
+        flash[:notice] = "出品に失敗しました"
+      end
+  end
 
 
 

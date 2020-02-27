@@ -1,7 +1,13 @@
 %header
   = link_to image_tag('logo/logo.png', width:'180px', class:"icon-box"), root_path
+
+
+
 %main
   .main-box
+  
+    - if flash[:notice]
+      %p.flash= flash[:notice]
     = form_for @product,  html: {id: "item-dropzone"} do |f|
       .main-box__form__group
         .main-box__form__group__title-box
@@ -14,13 +20,13 @@
         
 
 
-        = f.fields_for :images do |i|
+        = f.fields_for :images do |image|
           .dropzone-container
             #preview
             .dropzone-area
-              = i.label :image, class: "dropzone-box", for: "upload-image" do
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
                 .input_area 
-                  = i.file_field :image, multiple: true, name: 'product_images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                  = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
                 %p
                   ドラッグアンドドロップ
                   %br
@@ -28,7 +34,7 @@
           .dropzone-container
             #preview2
             .dropzone-area2
-              = i.label :image, class: "dropzone-box", for: "upload-image" do
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
                 %p ここをクリックしてください
 
 
@@ -108,11 +114,24 @@
           .main-box__form__group__price-box__select
             %span.main-box__form__group__price-box__select__mark
               ¥
-            = f.number_field :price, min:300, max:999999, class: "main-box__form__group__price-box__select__number", id: "sell-price", placeholder: "0", value:"", style:"text-align: right"
-        %p.main-box__form__group__commission
-          販売手数料（10%)
-        %p.main-box__form__group__profit
-          販売利益
+            %input#price_calc.main-box__form__group__price-box__select__number{placeholder: "例) 300", type: "number", min:300, max:999999, style:"text-align: right"}/
+        .main-box__form__group__data-box
+          .main-box__form__group__data-box__commission
+            販売手数料（10%)
+            .right_bar
+            
+        .main-box__form__group__data-box
+          .main-box__form__group__data-box__commission
+            販売利益
+            = f.number_field :price, style: "display: none", id: "price"
+            .right_bar_2
+
+
+
+
+
+
+
       .main-box__form__group
         .main-box__form__group__submit-box
           = f.submit "出品する", class:"main-box__form__group__submit-box__button",id:"product_botton"

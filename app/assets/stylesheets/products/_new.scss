@@ -140,8 +140,14 @@ body{
             line-height: 1.4em;
             margin-bottom: 24px;
           }
-          &__commission{
-            margin-bottom: 10px;
+          &__data-box{
+            padding: 12px 0px;
+            height: 50px;
+            line-height: 50px;
+            &__commission{
+              display: flex;
+              justify-content: space-between;
+            }
           }
           &__price-box{
             display: flex;
@@ -199,6 +205,11 @@ body{
     }
   }
 
+  .flash{
+    color: red;
+    font-size: 20px;
+    text-align: center;
+  }
   .explanation-form{
     width: 100%;
   }
