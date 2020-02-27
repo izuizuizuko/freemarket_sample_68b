@@ -1,19 +1,15 @@
-- if flash[:notice]
-  %p.notic 
-    = flash[:notice]
-
 #account-page.account-page
   .account-page__inner1.clearfix
     .page__header
       %h1
         = link_to image_tag("logo/logo.png", class:"header__logo")
     .page__main
-      %h2 購入内容の確認
+      %h2.title 購入内容の確認
     .page__main__forms
       .page__main__forms__date
-        .main__pick__box__lists__list__a__image
-          = image_tag "#{@product.images[0].image}"
-        .page__main__forms__text
+        .page__main__forms__date__image
+          = image_tag "#{@product.images[0].image}", class:"buyimg"
+        .page__main__forms__date__text
           %p 
             = @product.name
           %p.price
@@ -26,8 +22,11 @@
       .page__main__forms__buy
         %h3.buytitle 支払い方法
         - if @default_card_information.blank?
-          %p 購入にはクレジットカードの登録が必要です。
-          %br こちらから登録する。
+          .page__main__forms__buy__nodate
+            %p 購入にはクレジットカードの登録が必要です。
+            %br
+              = link_to 'こちら', new_card_path, class:"here", data: {"turbolinks" => false}
+              から登録する。
         - else
           .page__main__forms__buy__dates
             %p.card-date
@@ -36,14 +35,32 @@
               - exp_month = @default_card_information.exp_month.to_s
               - exp_year = @default_card_information.exp_year.to_s.slice(2,3)
               = exp_month + " / " + exp_year
+          %p.changes
+            クレジットカードを
+            = link_to 'こちら', new_card_path, class:"here", data: {"turbolinks" => false}
+            から変更する。
         %h3.buytitle 配達先
         - if @address.blank?
-          %p 購入には配達先の登録が必要です。
-          %br こちらから登録する。
+          .page__main__forms__buy__nodate
+            %p 購入には配達先の登録が必要です。
+            %br
+              = link_to 'こちら', edit_address_path, class:"here"
+              から登録する。
         - else
-
-        = form_tag(action: :buy, method: :post) do
-          %button.btn 購入する
+          .page__main__forms__buy__dates
+            %p.house-date
+              = @address.address_number
+            %p.house-date
+              = @address.prefecture
+          %p.changes
+            配達先を
+            = link_to 'こちら', edit_address_path, class:"here", data: {"turbolinks" => false}
+            から変更する。
+        - if @address.blank? || @default_card_information.blank?
+          %button.btnnot 購入する
+        - else
+          = form_tag(action: :buy, method: :post) do
+            %button.btn 購入する
 
 
     .account-page__footer

@@ -18,12 +18,10 @@
       設定
     %ul.my-side__nav__lists
       %li.my-side__nav__lists__list
-        %a.my-side__nav__lists__list__name{href: "#"} 発送元・お届け先住所変更
+        %a.my-side__nav__lists__list__name{href: "/addresses/:id/edit"} 発送元・お届け先住所変更
       %li.my-side__nav__lists__list
-        %a.my-side__nav__lists__list__name{href: "/cards/new"} 支払い方法
+        = link_to '支払い方法', new_card_path, data: {"turbolinks" => false}, class: "my-side__nav__lists__list__name"
       %li.my-side__nav__lists__list
         %a.my-side__nav__lists__list__name{href: "#"} メール/パスワード
-      %li.my-side__nav__lists__list
-        %a.my-side__nav__lists__list__name{href: "#"} 本人情報
       %li.my-side__nav__lists__list
         %a.my-side__nav__lists__list__name{href: "/users"} ログアウト

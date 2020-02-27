@@ -1,1 +1,11 @@
-購入が完了しました。
+= render 'toppage/header'
+
+.main-goods
+  .main-goods__another
+    .main-goods__another__messages
+      %h3.thanks 購入が完了しました！
+      %p.message 出品者からの発送をお待ち下さい。
+      .main-goods__another__messages__nexts
+        = link_to "トップページに戻る", root_path, class:"next"
+        = link_to "マイページに戻る", user_path(current_user), data: {"turbolinks" => false}, class:"next"
+= render 'toppage/footer'

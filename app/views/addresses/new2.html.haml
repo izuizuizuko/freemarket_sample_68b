@@ -1,0 +1,11 @@
+= render 'toppage/header'
+
+.main
+  .main__box
+    = render 'users/left-memu'
+    .my-credit
+      %h2.my-credit__title 本人情報登録
+      .my-credit__cards
+        = render 'addressform'
+
+= render 'toppage/footer'

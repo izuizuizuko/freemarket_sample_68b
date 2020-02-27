@@ -15,7 +15,12 @@ Rails.application.routes.draw do
 
   resources :products, only: [:new, :create, :show]
   resources :categories, only: [:show, :index]
-  resources :addresses, only: [:new, :create]
+  resources :addresses, only: [:new, :create, :edit, :update] do
+    collection do
+      get 'new2', to: 'addresses#new2'
+      post 'create2', to: 'addresses#create2'
+    end
+  end
 
 end
 

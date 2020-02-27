@@ -28,7 +28,7 @@ class CardsController < ApplicationController
       customer.delete
       if card.delete
         redirect_to action: "new", notice: "削除しました"
-      else #削除に失敗した時にアラートを表示します。
+      else 
         redirect_to action: "index", alert: "削除できませんでした"
       end
 
@@ -60,6 +60,7 @@ class CardsController < ApplicationController
       card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV["KEY"]
       @product = Product.find(params[:id])
+      @address = Address.find_by(user_id: current_user.id)
       if card.blank?
       else
         customer = Payjp::Customer.retrieve(card.customer_id)
@@ -77,7 +78,7 @@ class CardsController < ApplicationController
       customer: card.customer_id, 
       currency: 'jpy'
     )
-    if @product.update(status: 1)
+    if @product.update(status: 2)
       redirect_to action: 'show'
     else
       redirect_to action: 'edit', notice: "購入できませんでした"
