@@ -1,5 +1,6 @@
 class CardsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_card, only: [:edit, :buy]
   require "payjp"
 
   def new
@@ -57,20 +58,16 @@ class CardsController < ApplicationController
     end
 
     def edit
-      card = Card.where(user_id: current_user.id).first
       Payjp.api_key = ENV["KEY"]
       @product = Product.find(params[:id])
       @address = Address.find_by(user_id: current_user.id)
-      if card.blank?
-      else
+      if card.exists?
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
       end
-      
     end
   
     def buy
-      card = Card.where(user_id: current_user.id).first
       @product = Product.find(params[:id])
       Payjp.api_key = ENV['KEY']
       Payjp::Charge.create(
@@ -83,7 +80,12 @@ class CardsController < ApplicationController
     else
       redirect_to action: 'edit', notice: "購入できませんでした"
     end
+    end
 
+    private
+
+    def set_card
+      card = Card.where(user_id: current_user.id).first 
     end
 
 end
