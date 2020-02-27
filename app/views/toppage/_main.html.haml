@@ -119,9 +119,9 @@
       .main__pick__box__lists
         - @goods.each do |item|
           .main__pick__box__lists__list
-            = link_to "#", class:"main__pick__box__lists__list__a" do
+            = link_to product_path(item), class:"main__pick__box__lists__list__a" do
               .main__pick__box__lists__list__a__image
-                = image_tag "#{item.images[0].image}"
+                -# = image_tag "#{item.images[0].image}"
               .main__pick__box__lists__list__a__text
                 .main__pick__box__lists__list__a__text__name
                   = item.name

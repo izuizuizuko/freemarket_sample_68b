@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
   resources :toppage, only: :index
 
-  resources :products, only: [:new, :create, :show]
+  resources :products, only: [:new, :create, :show, :edit, :update]
   resources :categories, only: [:show, :index]
   resources :addresses, only: [:new, :create]
 
