@@ -4,24 +4,17 @@ class ProductsController < ApplicationController
   def index
   end
 
-
   def new
     @product = Product.new
     @product.images.build
     @category = Category.all.order("id ASC").limit(13)
   end
 
-
-
-
   def category_children
-    #選択された親カテゴリーに紐付く子カテゴリーの配列を取得
     @category_children = Category.find(params[:parent_name]).children 
   end
 
-  # 子カテゴリーが選択された後に動くアクション
   def category_grandchildren
-    #選択された子カテゴリーに紐付く孫カテゴリーの配列を取得
     @category_grandchildren = Category.find("#{params[:childId]}").children
   end
 
@@ -38,8 +31,6 @@ class ProductsController < ApplicationController
         flash[:notice] = "出品に失敗しました"
       end
   end
-
-
 
   def show
     @category = @product.category
