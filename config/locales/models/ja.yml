@@ -12,6 +12,12 @@ ja:
         kana_first_name: "メイ"
         birthday: "生年月日"
         telnumber: "電話番号"
+      address:
+        address_number: "郵便番号"
+        prefecture: "都道府県"
+        city: "市町村区"
+        town: "番地"
+        house_number: "建物名"
   errors:
     messages: 
       not_saved: "入力情報をご確認ください"
