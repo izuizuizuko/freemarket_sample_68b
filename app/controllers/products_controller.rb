@@ -16,5 +16,13 @@ class ProductsController < ApplicationController
     @address = Address.find_by(user_id: current_user.id)
   end
 
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy if @product.user_id == current_user.id
+    redirect_to root_path
+  end
+        
+
 end
 
