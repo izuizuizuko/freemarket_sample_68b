@@ -25,13 +25,12 @@ class AddressesController < ApplicationController
   end
 
   def edit
-    binding.pry
-    @address = current_user.address
+    @address = current_user.addresses.first
     redirect_to mypage_new_addresses_path if @address.blank?
   end
 
   def update
-    address = Address.find_by(user_id: current_user.id)
+    address = current_user.addresses.first
     address.update(address_params)
     redirect_to user_path(id: current_user.id)
   end
