@@ -1,5 +1,9 @@
 .main{
   background-color: #f8f8f8;
+  &__devise{
+    display: none;
+  }
+  
   &__image1{
     height: 560px;
     background-image: url("/images/bg-mainVisual-pict_pc.jpg");
