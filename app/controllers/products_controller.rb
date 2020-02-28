@@ -8,6 +8,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.build
     @category = Category.all.order("id ASC").limit(13)
+    @address = Address.find_by(user_id: current_user.id)
   end
 
   def category_children
