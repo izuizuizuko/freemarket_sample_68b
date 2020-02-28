@@ -6,16 +6,16 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @sell = @product.where(status: "")
+        @sell = @product.where(status: 1)
         @sold = @product.where(status: 2)
     end
 
     def sell
-        @goods = @product.where(status: "").page(params[:page]).per(9)
+        @goods = @product.where(status: 1)
     end
 
     def sold
-        @goods = @product.where(status: 2).page(params[:page]).per(9)
+        @goods = @product.where(status: 2)
     end
     private
     def set_product
