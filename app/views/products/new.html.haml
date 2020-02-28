@@ -73,7 +73,7 @@
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :condition, Product.states.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+          = f.select :condition, ["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"], {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
 
       .main-box__form__group
         %p.main-box__form__group__name
@@ -83,7 +83,7 @@
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :burden, Product.burdens.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+          = f.select :burden, ["送料込み(出品者負担)", "着払い(購入者負担)"], {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
 
         .main-box__form__group__title-box
         %label.main-box__form__group__title
@@ -91,15 +91,7 @@
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :days, Product.days.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
-
-
-
-
-
-
-
-
+          = f.select :days, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
 
 
 
@@ -114,7 +106,7 @@
           .main-box__form__group__price-box__select
             %span.main-box__form__group__price-box__select__mark
               ¥
-            %input#price_calc.main-box__form__group__price-box__select__number{placeholder: "例) 300", type: "number", min:300, max:999999, style:"text-align: right"}/
+            = f.number_field :price, id: "price_calc", class: "main-box__form__group__price-box__select__number",placeholder: "例) 300", type: "number", min:300, max:999999, style:"text-align: right"
         .main-box__form__group__data-box
           .main-box__form__group__data-box__commission
             販売手数料（10%)
@@ -123,12 +115,8 @@
         .main-box__form__group__data-box
           .main-box__form__group__data-box__commission
             販売利益
-            = f.number_field :price, style: "display: none", id: "price"
+            %input{style: "display: none", id: "price"}
             .right_bar_2
-
-
-
-
 
 
 
