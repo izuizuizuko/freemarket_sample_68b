@@ -3,7 +3,13 @@ Rails.application.routes.draw do
                                       sessions: 'users/sessions' }
   root to:'toppage#index'
   
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+    collection do
+      get 'sell', to: 'users#sell'
+      get 'sold', to: 'users#sold'
+    end
+  end
+
   
   resources :cards, only: [:new, :show, :index, :edit] do
     collection do
@@ -12,14 +18,7 @@ Rails.application.routes.draw do
       post 'buy/:id', to: 'cards#buy'
     end
   end
-  
-  resources :toppage, only: :index do
-    collection do
-      get 'sell', to: 'toppage#sell'
-      get 'sold', to: 'toppage#sold'
-    end
-  end
-
+  resources :toppage, only: :index
 
   resources :products, only: [:index, :new, :create, :show, :destroy] do
     collection do
