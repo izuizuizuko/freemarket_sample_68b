@@ -1,0 +1,30 @@
+= render 'toppage/header'
+
+.main
+  .main__box
+    = render 'left-memu'
+
+    .my-main-goods
+      .my-main-goods__box
+        - @goods.each do |goods|
+          .main__pick__box__lists__list
+            = link_to product_path(goods.id), class:"main__pick__box__lists__list__a" do
+              .product-image
+                - if goods.status != "2"
+                - else
+                  .sold-date
+                    %p
+                = image_tag "#{goods.images[0].image}", class: "product-image__i1"
+              .main__pick__box__lists__list__a__text
+                .main__pick__box__lists__list__a__text__name
+                  = goods.name
+                .main__pick__box__lists__list__a__text__box
+                  .main__pick__box__lists__list__a__text__box__price
+                    = goods.price
+                  .main__pick__box__lists__list__a__text__box__tax
+                    (税込)   
+
+  = paginate(@goods)
+
+
+= render 'toppage/footer'

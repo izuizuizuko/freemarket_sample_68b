@@ -1,0 +1,42 @@
+= render 'toppage/header'
+
+.main
+  .main__box
+    = render 'users/left-memu'
+
+    .my-credit
+      %h2.my-credit__title 登録情報の変更
+      .my-credit__cards
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .field
+            .field-label
+              = f.label :メールアドレス
+            .field-input
+              = f.email_field :email, autofocus: true, autocomplete: "email"
+            - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+              %div
+                Currently waiting confirmation for: #{resource.unconfirmed_email}
+          .field
+            .field-label
+              = f.label :新しいパスワード
+            .field-input
+              = f.password_field :password, autocomplete: "new-password"
+              - if @minimum_password_length
+                %p.keepout
+                  = @minimum_password_length
+                  文字以上入力してください
+          .field
+            .field-label
+              = f.label :新しいパスワードの再入力
+            .field-input
+              = f.password_field :password_confirmation, autocomplete: "new-password"
+          .field
+            .field-label
+              = f.label :今のパスワード
+            .field-input
+              = f.password_field :current_password, autocomplete: "current-password"
+          .actions
+            = f.submit "変更する", class:"btn"
+
+= render 'toppage/footer'
