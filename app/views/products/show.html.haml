@@ -26,7 +26,7 @@
             = link_to "#", class:"item__box__method__box_btn"do
               編集
           .item__box__method__box__btn2
-            = link_to "#", class:"item__box__method__box_btn"do
+            = link_to product_path(@product),method: :delete,  class:"item__box__method__box_btn"do
               削除
         - else 
           .item__box__method__box__btn3

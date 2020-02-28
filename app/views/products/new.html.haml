@@ -1,21 +1,45 @@
 %header
   = link_to image_tag('logo/logo.png', width:'180px', class:"icon-box"), root_path
+
+
+
 %main
   .main-box
-    = form_for @product,  html: { class: "main-box__form" } do |f|
+  
+    - if flash[:notice]
+      %p.flash= flash[:notice]
+    = form_for @product,  html: {id: "item-dropzone"} do |f|
       .main-box__form__group
         .main-box__form__group__title-box
-          %label.main-box__form__group__title
+          %h3.main-box__form__group__title
             出品画像
             %span.main-box__form__group__title__s
               必須
         %p.main-box__form__group__text
           最大10枚までアップロードできます
-        .main-box__form__group__image-form
-          = f.fields_for :images do |i|
-            = i.file_field :image
-        %p.main-box__form__group__ino
-          画像がありません
+        
+
+
+        = f.fields_for :images do |image|
+          .dropzone-container
+            #preview
+            .dropzone-area
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
+                .input_area 
+                  = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+                %p
+                  ドラッグアンドドロップ
+                  %br
+                  またはクリックしてファイルをダウンロード
+          .dropzone-container
+            #preview2
+            .dropzone-area2
+              = image.label :image, class: "dropzone-box", for: "upload-image" do
+                %p ここをクリックしてください
+
+
+
+
 
 
 
@@ -40,24 +64,36 @@
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :category_id, Product.categories.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+          = f.collection_select :category_id, @category, :id, :name, {prompt: "---"}, class: "main-box__form__group__name-form", id: "category_select"
+        .main-box__form__group__children
+
         .main-box__form__group__title-box
         %label.main-box__form__group__title
           商品の状態
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :condition, Product.states.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+          = f.select :condition, ["新品、未使用", "未使用に近い", "目立った傷や汚れなし", "やや傷や汚れあり", "傷や汚れあり", "全体的に状態が悪い"], {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
 
       .main-box__form__group
         %p.main-box__form__group__name
-          配送について
+          配送料について
         %label.main-box__form__group__title
-          発送元の地域
+          配送料の負担
           %span.main-box__form__group__title__s
             必須
         .main-box__form__group__select
-          = f.select :status, Product.cities.keys, {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+          = f.select :burden, ["送料込み(出品者負担)", "着払い(購入者負担)"], {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+
+        .main-box__form__group__title-box
+        %label.main-box__form__group__title
+          発送までの日数
+          %span.main-box__form__group__title__s
+            必須
+        .main-box__form__group__select
+          = f.select :days, ["1~2日で発送", "2~3日で発送", "4~7日で発送"], {include_blank: "選択してください"}, {class: 'main-box__form__group__name-form'}
+
+
 
       .main-box__form__group
         %p.main-box__form__group__name
@@ -70,12 +106,21 @@
           .main-box__form__group__price-box__select
             %span.main-box__form__group__price-box__select__mark
               ¥
-            = f.number_field :price, min:300, max:9999999, class: "main-box__form__group__price-box__select__number", id: "sell-price", placeholder: "0", value:"", style:"text-align: right"
-        %p.main-box__form__group__price-box__commission
-          販売手数料（10%)
+            = f.number_field :price, id: "price_calc", class: "main-box__form__group__price-box__select__number",placeholder: "例) 300", type: "number", min:300, max:999999, style:"text-align: right"
+        .main-box__form__group__data-box
+          .main-box__form__group__data-box__commission
+            販売手数料（10%)
+            .right_bar
+            
+        .main-box__form__group__data-box
+          .main-box__form__group__data-box__commission
+            販売利益
+            %input{style: "display: none", id: "price"}
+            .right_bar_2
+
+
+
       .main-box__form__group
-        %p.main-box__form__group__profit
-          販売利益
         .main-box__form__group__submit-box
           = f.submit "出品する", class:"main-box__form__group__submit-box__button",id:"product_botton"
           
