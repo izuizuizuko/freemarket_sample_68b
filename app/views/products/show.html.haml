@@ -44,13 +44,13 @@
             %th カテゴリー
             %td 
               .item-category
-                = link_to ">#{@category.parent.parent.name}",  categories_path, class: "user-name-string"; 
+                = link_to ">#{@category.parent.parent.name}",  category_path(@category.parent.parent.id), class: "user-name-string"; 
               %br
               .item-category
-                = link_to ">#{@category.parent.name}", category_path, class: "user-name-string"; 
+                = link_to ">#{@category.parent.name}", category_path(@category.parent.id), class: "user-name-string"; 
               %br 
               .item-category
-                = link_to ">#{@category.name}",  category_path, class: "user-name-string"; 
+                = link_to ">#{@category.name}",  category_path(@category.id), class: "user-name-string"; 
                 
           %tr
             %th 商品状態

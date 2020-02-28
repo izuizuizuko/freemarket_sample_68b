@@ -3,7 +3,14 @@ Rails.application.routes.draw do
                                       sessions: 'users/sessions' }
   root to:'toppage#index'
   
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+    collection do
+      get 'sell', to: 'users#sell'
+      get 'sold', to: 'users#sold'
+    end
+  end
+
+  
   resources :cards, only: [:new, :show, :index, :edit] do
     collection do
       post 'pay', to: 'cards#pay'
@@ -21,6 +28,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: [:show, :index]
+  
   resources :addresses, only: [:new, :create, :edit, :update] do
     collection do
       get 'mypage_new', to: 'addresses#mypage_new'

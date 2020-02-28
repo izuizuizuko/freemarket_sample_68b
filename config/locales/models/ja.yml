@@ -12,6 +12,8 @@ ja:
         kana_first_name: "メイ"
         birthday: "生年月日"
         telnumber: "電話番号"
+        current_password: "現在のパスワード"
+        password_confirmation: "再入力"
       address:
         address_number: "郵便番号"
         prefecture: "都道府県"

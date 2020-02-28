@@ -7,8 +7,8 @@
     .my-main
       .logout
         .logout__box
-          .logout__box__bm
-            = link_to "ログアウト", destroy_user_session_path, method: :delete, class:"logout__box__bm__btn"
+          = link_to destroy_user_session_path, method: :delete, class:".logout__box__bm" do 
+            %p.logout__box__bm__btn ログアウト
 
 = render 'toppage/footer'
 

@@ -14,18 +14,40 @@
               = @user.nickname
             .my-main__top__box__image__date
               %p.goodsnum 出品数
-              %span.goodssum 0
+              %span.goodssum 
+                = @product.length
       .my-main__goods
-        %h2.title 購入した商品
+        %h2.title 売買した商品
         %ul.buys
           %li{class:"buys__status active", id:"now"}
-            %span(href='#') 取引中
+            %span(href='#') 出品中
           %li{class: "buys__status", id:"ago"}
-            %span(href='#') 過去の取引
+            %span(href='#') 売却済み
         .my-main__goods__box
-          = image_tag('logo/logo.png', class:"back-img")
           %ul.buy-goods
-            %li{class: 'buy-goods__status show'} 取引中の商品はありません
-            %li{class: 'buy-goods__status'} 過去に取引した商品はありません
+            - if @sell.present?
+              %li{class: 'buy-goods__status show'}
+                - @sell.each do |sell|
+                  = link_to product_path(sell.id) do
+                    .minigoods
+                      .imagmini
+                        = image_tag "#{sell.images[0].image}", class: "product-imagemini"
+                      .textmini
+                        %p.mygoods #{sell.name}
+                        %p.mygoods #{sell.price}円
+            - else
+              %li{class: 'buy-goods__status show'} 出品中の商品はありません
+            - if @sold.present?
+              %li{class: 'buy-goods__status'} 
+                - @sold.each do |sold|
+                  = link_to product_path(sold.id) do
+                    .minigoods
+                      .imagmini
+                        = image_tag "#{sold.images[0].image}", class: "product-imagemini"
+                      .textmini
+                        %p.mygoods #{sold.name}
+                        %p.mygoods #{sold.price}円
+            - else
+              %li{class: 'buy-goods__status'} 売却した商品はありません
 
 = render 'toppage/footer'
