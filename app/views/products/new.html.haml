@@ -7,7 +7,8 @@
   .main-box
   
     - if flash[:notice]
-      %p.flash= flash[:notice]
+      %p.flash
+        = flash[:notice]
     = form_for @product,  html: {id: "item-dropzone"} do |f|
       .main-box__form__group
         .main-box__form__group__title-box
