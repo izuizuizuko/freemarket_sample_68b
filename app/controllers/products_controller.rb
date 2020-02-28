@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.status = 1
       if @product.save
           params[:images][:image].each do |image|
             @product.images.create(image: image, product_id: @product.id)
