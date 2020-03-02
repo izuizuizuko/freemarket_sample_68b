@@ -61,21 +61,27 @@ class CardsController < ApplicationController
       Payjp.api_key = ENV["KEY"]
       card = Card.where(user_id: current_user.id).first
       @address = Address.find_by(user_id: current_user.id)
+      if current_user.id == @product.id
+        redirect_to root_path
+      elsif @product.status == "2"
+        redirect_to root_path
+      end
       if card.present?
         customer = Payjp::Customer.retrieve(card.customer_id)
         @default_card_information = customer.cards.retrieve(card.card_id)
       end
-      
     end
   
     def buy
       Payjp.api_key = ENV['KEY']
       card = Card.where(user_id: current_user.id).first
-      Payjp::Charge.create(
-      amount: @product.price,
-      customer: card.customer_id, 
-      currency: 'jpy'
-    )
+      if current_user.id != @product.id && @product.status == "1"
+        Payjp::Charge.create(
+        amount: @product.price,
+        customer: card.customer_id, 
+        currency: 'jpy'
+      )
+      end
     if @product.update(status: 2)
       redirect_to action: 'show'
     else

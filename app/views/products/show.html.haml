@@ -28,10 +28,11 @@
           .item__box__method__box__btn2
             = link_to product_path(@product),method: :delete,  class:"item__box__method__box_btn"do
               削除
-        - else 
+        - elsif @product.status == "1"
           .item__box__method__box__btn3
             = link_to edit_card_path(id: @product.id), class:"item__box__method__box_btn"do
-              購入画面に進む 
+              購入画面に進む
+        - else
 
     .item__box__information__table
       %table

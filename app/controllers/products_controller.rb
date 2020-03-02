@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, :except=>[:show]
   before_action :set_product, only: [:show, :destroy]
 
   def index
@@ -38,7 +39,7 @@ class ProductsController < ApplicationController
     @category = @product.category
     @images = @product.images
     @image = @images.first
-    @address = Address.find_by(user_id: current_user.id)
+    @address = Address.find_by(user_id: @product.user_id)
   end
 
   def destroy
