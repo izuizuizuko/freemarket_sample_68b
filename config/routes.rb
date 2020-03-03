@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
   resources :toppage, only: :index
 
+  resources :images, only: [:destroy]
+
   resources :products do
     collection do
       get 'category_children', defaults: { format: 'json' }

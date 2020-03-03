@@ -3,8 +3,10 @@
 
 %main
   .main-box
+  
     - if flash[:notice]
-      %p.flash= flash[:notice]
+      %p.flash
+        = flash[:notice]
     = form_for @product,  html: {id: "item-dropzone"} do |f|
       .main-box__form__group
         .main-box__form__group__title-box
@@ -14,25 +16,29 @@
               必須
         %p.main-box__form__group__text
           最大10枚までアップロードできます
+          %br ドラッグアンドドロップまたはクリックしてファイルをダウンロード
         
 
 
-        = f.fields_for :images do |image|
+        = f.fields_for :image do |image|
           .dropzone-container
+            .ago-preview
+              - @product.images.each_with_index do |image, idx|
+                .ago-preview__box{id: "imagebox#{idx+1}"}
+                  = image_tag image.image_url, size: "112x112"
+                  = link_to '削除', image_path(image.id), method: "delete", class: "delete_btn", id: "btn#{idx+1}"
             #preview
             .dropzone-area
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 .input_area 
-                  = image.file_field multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                %p
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをダウンロード
+                  = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
+            .whitebox
           .dropzone-container
             #preview2
             .dropzone-area2
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 %p ここをクリックしてください
+
 
 
       .main-box__form__group
@@ -61,16 +67,6 @@
           = f.collection_select :category_id, @child_category.siblings, :id, :name, {selected: @child_category_id},class: 'main-box__form__group__name-form', id: 'product_child_category'
         .main-box__form__group__select{id: "displayNoneCategory"}
           = f.collection_select :category_id, @grandchild_category.siblings, :id, :name, {selected: @grandchild_category_id},class: 'main-box__form__group__name-form', id: 'product_grandchild_category'
-        -# .main-box__form__group__select
-        -#   = f.select :category_id, @parent_category{}, {class: "main-box__form__group__name-form", id: "parent_category"}
-        -# .main-box__form__group__select
-        -#   = f.select :category_id, @child_category.siblings, {}, {class: "main-box__form__group__name-form", id: "product_child_category"}
-        -# .main-box__form__group__select
-        -#   = f.select :category_id, @grandchild_category.siblings, {}, {class: "main-box__form__group__name-form", id: "product_grandchild_category"}
-        -# -#   = f.collection_select :child_category, @child_category.siblings, :id, :name, {selected: @child_category.id, prompt: '---'}
-        -# -# .main-box__form__group__children
-        -#   = f.collection_select :grandchild_category, @grandchild_category.siblings, :id, :name, {selected: @grandchild_category.id, prompt: '---'}
-
 
 
 
