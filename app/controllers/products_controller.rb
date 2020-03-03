@@ -21,7 +21,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.status = 1
-      if @product.save
+      if params[:images].blank?
+        @product.images.build
+        redirect_to action: "new"
+        flash[:notice] = "出品に失敗しました"
+      elsif @product.save
           params[:images][:image].each do |image|
             @product.images.create(image: image, product_id: @product.id)
           end
@@ -54,7 +58,11 @@ class ProductsController < ApplicationController
   def update
     redirect_to root_path if @product.user_id != current_user.id
 
-    if params[:images].blank?
+    if params[:images].blank? && @product.images.blank?
+      @product.images.build
+      redirect_to action: "edit"
+      flash[:notice] = "出品に失敗しました"
+    elsif params[:images].blank?
       @product.update(params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, :burden, :days).merge(user_id: current_user.id))
       redirect_to root_path
     elsif @product.update (product_params)
