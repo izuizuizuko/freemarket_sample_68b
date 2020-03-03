@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, :except=>[:show]
-  before_action :set_product, only: [:show, :destroy]
+  before_action :set_product, only: [:show, :destroy, :edit, :update]
 
   def index
   end
@@ -23,7 +23,11 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.status = 1
-      if @product.save
+      if params[:images].blank?
+        @product.images.build
+        redirect_to action: "new"
+        flash[:notice] = "出品に失敗しました"
+      elsif @product.save
           params[:images][:image].each do |image|
             @product.images.create(image: image, product_id: @product.id)
           end
@@ -46,6 +50,34 @@ class ProductsController < ApplicationController
     redirect_to root_path if @product.destroy && @product.user_id == current_user.id
   end
 
+  def edit
+    @grandchild_category = @product.category
+    @child_category = @product.category.parent
+    @root_category = @product.category.root
+    redirect_to root_path if @product.user_id != current_user.id
+  end
+
+  def update
+    redirect_to root_path if @product.user_id != current_user.id
+
+    if params[:images].blank? && @product.images.blank?
+      @product.images.build
+      redirect_to action: "edit"
+      flash[:notice] = "出品に失敗しました"
+    elsif params[:images].blank?
+      @product.update(params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, :burden, :days).merge(user_id: current_user.id))
+      redirect_to root_path
+    elsif @product.update (product_params)
+      params[:images][:image].each do |image|
+        @product.images.create(image: image, product_id: @product.id)
+      end
+      redirect_to root_path
+    else
+      @product.images.build
+      redirect_to action: "edit"
+      flash[:notice] = "出品に失敗しました"
+    end
+  end
 
 
   private

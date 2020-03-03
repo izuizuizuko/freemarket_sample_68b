@@ -24,6 +24,7 @@ body{
       height: 100%;
       &__form{
         &__group{
+          position: relative;
           padding: 40px;
           border-bottom: solid 1px #eee;
           &__title{
@@ -76,6 +77,22 @@ body{
             display: block;
             margin: 16px auto 0;
             display: flex;
+            .ago-preview {
+              display: flex;
+              &__box {
+                padding-right: 15px;
+                .delete_btn {
+                  color: black;
+                }
+              }
+            }
+            .whitebox {
+              position: absolute;
+              right: 20px;
+              height: 170px;
+              width: 18px;
+              background-color: white;
+            }
             #preview , #preview2{
               display: flex;
               .img_view {

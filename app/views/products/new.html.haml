@@ -18,10 +18,9 @@
               必須
         %p.main-box__form__group__text
           最大10枚までアップロードできます
-        
 
 
-        = f.fields_for :images do |image|
+        = f.fields_for :image do |image|
           .dropzone-container
             #preview
             .dropzone-area
@@ -37,11 +36,6 @@
             .dropzone-area2
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 %p ここをクリックしてください
-
-
-
-
-
 
 
       .main-box__form__group
