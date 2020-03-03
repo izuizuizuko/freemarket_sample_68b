@@ -7,7 +7,8 @@
   .main-box
   
     - if flash[:notice]
-      %p.flash= flash[:notice]
+      %p.flash
+        = flash[:notice]
     = form_for @product,  html: {id: "item-dropzone"} do |f|
       .main-box__form__group
         .main-box__form__group__title-box
@@ -116,7 +117,15 @@
 
       .main-box__form__group
         .main-box__form__group__submit-box
-          = f.submit "出品する", class:"main-box__form__group__submit-box__button",id:"product_botton"
+          - if @address.blank?
+            .page__main__forms__buy__nodate
+              %p 出品には住所の登録が必要です。
+              %br
+                = link_to 'こちら', edit_address_path(current_user.id), class:"here"
+                から登録する。
+          - if @address.blank?
+          - else
+            = f.submit "出品する", class:"main-box__form__group__submit-box__button",id:"product_botton"
           
           = link_to "/", class:"main-box__form__group__submit-box__return" do
             .main-box__form__group__submit-box__return__text

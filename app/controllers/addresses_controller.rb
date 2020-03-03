@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  before_action :authenticate_user!
   before_action :news, only: [:new, :mypage_new]
   before_action :creates, only: [:create, :mypage_create]
 

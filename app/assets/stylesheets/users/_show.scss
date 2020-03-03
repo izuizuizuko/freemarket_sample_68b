@@ -87,13 +87,40 @@ a{
                 font-size: 16px;
                 color: #ccc;
                 padding: 40px 0px;
-                .back-img {
-                  height: 30%;
-                  width: 30%;
-                }
                 .buy-goods {
                     li {
                         display: none;
+                        .minigoods {
+                            display: flex;
+                            padding-left: 20px;
+                            padding-bottom: 30px;
+                            .imagmini {
+                                width: 130px;
+                                height: 70px;
+                                position: relative;
+                                overflow: hidden;
+                                margin: 0;
+                                text-align: center;
+                                .product-imagemini {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    height: 100%;
+                                    width: auto;
+                                    text-align: center;
+                                }
+                            }
+                            .textmini {
+                                padding-left: 20px;
+                                .mygoods {
+                                    font-size: 15px;
+                                    color: black;
+                                    text-align: left;
+                                    width: 490px;
+                                }
+                            }
+                        }
                     }
                     .show {
                         display: block;
@@ -105,3 +132,13 @@ a{
   }
 }
 
+.my-main-goods {
+    .my-main-goods__box {
+        width:720px;
+        float: left;
+        .main__pick__box__lists__list {
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+    }
+}

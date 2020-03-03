@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!, :except=>[:show]
   before_action :set_product, only: [:show, :destroy, :edit, :update]
 
   def index
@@ -8,6 +9,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.images.build
     @category = Category.all.order("id ASC").limit(13)
+    @address = Address.find_by(user_id: current_user.id)
   end
 
   def category_children

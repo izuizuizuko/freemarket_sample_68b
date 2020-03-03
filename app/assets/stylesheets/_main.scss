@@ -1,5 +1,9 @@
 .main{
   background-color: #f8f8f8;
+  &__devise{
+    display: none;
+  }
+  
   &__image1{
     height: 560px;
     background-image: url("/images/bg-mainVisual-pict_pc.jpg");
@@ -32,7 +36,7 @@
       &__btn{
         display: flex;
         margin: 24px 0 0 0;
-        a{
+        img{
           margin-right: 10px;
         }
       }
@@ -197,7 +201,7 @@
     &__box{
       &__new{
         text-align: center;
-        a{
+        .subtitle {
           font-size: 24px;
           text-decoration: none;
           color: #3CCACE;
@@ -224,8 +228,10 @@
               &__name{
                 overflow: hidden;
                 line-height: 1.5;
+                height: 50px;
                 font-size: 16px;
                 text-align: left;
+
               }
               &__box{
                 font-size: 16px;

@@ -28,10 +28,11 @@
           .item__box__method__box__btn2
             = link_to product_path(@product),method: :delete,  class:"item__box__method__box_btn"do
               削除
-        - else 
+        - elsif @product.status == "1"
           .item__box__method__box__btn3
             = link_to edit_card_path(id: @product.id), class:"item__box__method__box_btn"do
-              購入画面に進む 
+              購入画面に進む
+        - else
 
     .item__box__information__table
       %table
@@ -44,13 +45,13 @@
             %th カテゴリー
             %td 
               .item-category
-                = link_to ">#{@category.parent.parent.name}",  categories_path, class: "user-name-string"; 
+                = link_to ">#{@category.parent.parent.name}",  category_path(@category.parent.parent.id), class: "user-name-string"; 
               %br
               .item-category
-                = link_to ">#{@category.parent.name}", category_path, class: "user-name-string"; 
+                = link_to ">#{@category.parent.name}", category_path(@category.parent.id), class: "user-name-string"; 
               %br 
               .item-category
-                = link_to ">#{@category.name}",  category_path, class: "user-name-string"; 
+                = link_to ">#{@category.name}",  category_path(@category.id), class: "user-name-string"; 
                 
           %tr
             %th 商品状態

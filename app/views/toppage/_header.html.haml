@@ -5,7 +5,7 @@
         = link_to image_tag('logo/logo.png', width:'150px'), root_path
       .header__inner__main__seach
         = form_with(url:"#",local: true, method: :get, class: "header__inner__main__seach__form") do |form|
-          = form.text_field :keyword, placeholder: "キーワードから探す", class: "header__inner__main__seach__form__input"
+          = form.text_field :keyword, placeholder: "検索機能は実装しておりません", class: "header__inner__main__seach__form__input"
           = form.submit "", class: "header__inner__main__seach__form__btn"
     .header__inner__nav
       .header__inner__nav__left
@@ -14,6 +14,7 @@
             カテゴリー
           %ul.header__inner__nav__left__ca__parents
             = link_to "カテゴリー一覧から探す", "/categories", class:"allcate"
+            
 
       .header__inner__nav__right
         .header__inner__nav__right__log
