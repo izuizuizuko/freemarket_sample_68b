@@ -90,4 +90,4 @@ gem 'ancestry'
 gem 'mini_magick'
 gem 'antivirus'
 gem 'kaminari'
-
+gem 'gon'
