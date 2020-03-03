@@ -14,7 +14,9 @@
                 - else
                   .sold-date
                     %p
-                = image_tag "#{goods.images[0].image}", class: "product-image__i1"
+                - if goods.images.blank?
+                - else
+                  = image_tag "#{goods.images[0].image}", class: "product-image__i1"
               .main__pick__box__lists__list__a__text
                 .main__pick__box__lists__list__a__text__name
                   = goods.name

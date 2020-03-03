@@ -5,11 +5,13 @@
     .item__box__name
       = @product.name
     .item__box__main
-      .item__box__main__image
-        = image_tag @image.image.to_s, size: "350x350"
-      .item__box__main__sub  
-        - @product.images.each.with_index do |image, index|
-          = image_tag image.image_url, size: "150x150", class: "image-sub"
+      - if @product.images.blank?
+      - else
+        .item__box__main__image
+          = image_tag @image.image.to_s, size: "350x350"
+        .item__box__main__sub  
+          - @product.images.each.with_index do |image, index|
+            = image_tag image.image_url, size: "150x150", class: "image-sub"
       
     .item__box__price
       .item__box__price__include

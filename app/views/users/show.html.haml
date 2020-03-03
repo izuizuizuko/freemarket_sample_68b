@@ -31,7 +31,9 @@
                   = link_to product_path(sell.id) do
                     .minigoods
                       .imagmini
-                        = image_tag "#{sell.images[0].image}", class: "product-imagemini"
+                        - if sell.images.blank?
+                        - else
+                          = image_tag "#{sell.images[0].image}", class: "product-imagemini"
                       .textmini
                         %p.mygoods #{sell.name}
                         %p.mygoods #{sell.price}円
@@ -43,7 +45,9 @@
                   = link_to product_path(sold.id) do
                     .minigoods
                       .imagmini
-                        = image_tag "#{sold.images[0].image}", class: "product-imagemini"
+                        - if sold.images.blank?
+                        - else
+                          = image_tag "#{sold.images[0].image}", class: "product-imagemini"
                       .textmini
                         %p.mygoods #{sold.name}
                         %p.mygoods #{sold.price}円
