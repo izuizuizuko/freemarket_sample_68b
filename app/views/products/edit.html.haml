@@ -64,9 +64,9 @@
         .main-box__form__group__select
           = f.collection_select :category_id, Category.roots, :id, :name, {selected: @root_category.id}, class: 'main-box__form__group__name-form', id: 'parent_category'
         .main-box__form__group__select
-          = f.collection_select :category_id, @child_category.siblings, :id, :name, {selected: @child_category_id},class: 'main-box__form__group__name-form', id: 'product_child_category'
+          = f.collection_select :category_id, @child_category.siblings, :id, :name, {selected: @child_category.id},class: 'main-box__form__group__name-form', id: 'product_child_category'
         .main-box__form__group__select{id: "displayNoneCategory"}
-          = f.collection_select :category_id, @grandchild_category.siblings, :id, :name, {selected: @grandchild_category_id},class: 'main-box__form__group__name-form', id: 'product_grandchild_category'
+          = f.collection_select :category_id, @grandchild_category.siblings, :id, :name, {selected: @grandchild_category.id},class: 'main-box__form__group__name-form', id: 'product_grandchild_category'
 
 
 

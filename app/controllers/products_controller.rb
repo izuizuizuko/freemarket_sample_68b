@@ -64,10 +64,14 @@ class ProductsController < ApplicationController
       @product.images.build
       redirect_to action: "edit"
       flash[:notice] = "出品に失敗しました"
+    elsif product_params[:name] == "" or product_params[:detail] == "" or product_params[:category_id] == "" or product_params[:price] == "" or product_params[:condition] == "" or product_params[:status] == "" or product_params[:burden] == "" or product_params[:days] == ""
+      @product.images.build
+      redirect_to action: "edit"
+      flash[:notice] = "出品に失敗しました"
     elsif params[:images].blank?
       @product.update(params.require(:product).permit(:name, :detail, :category_id, :price, :condition, :status, :burden, :days).merge(user_id: current_user.id))
       redirect_to root_path
-    elsif @product.update (product_params)
+    elsif @product.update(product_params)
       params[:images][:image].each do |image|
         @product.images.create(image: image, product_id: @product.id)
       end
