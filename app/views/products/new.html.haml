@@ -17,7 +17,11 @@
             %span.main-box__form__group__title__s
               必須
         %p.main-box__form__group__text
-          最大10枚までアップロードできます
+          最大5枚までアップロードできます
+          %br
+          画像は新しく追加した順に表示されます
+          %br
+          ドラッグアンドドロップまたはクリックしてファイルをダウンロード
 
 
         = f.fields_for :image do |image|
@@ -27,15 +31,6 @@
               = image.label :image, class: "dropzone-box", for: "upload-image" do
                 .input_area 
                   = image.file_field :image, multiple: true, name: 'images[image][]', id: "upload-image", class: "upload-image", 'data-image': 0
-                %p
-                  ドラッグアンドドロップ
-                  %br
-                  またはクリックしてファイルをダウンロード
-          .dropzone-container
-            #preview2
-            .dropzone-area2
-              = image.label :image, class: "dropzone-box", for: "upload-image" do
-                %p ここをクリックしてください
 
 
       .main-box__form__group
